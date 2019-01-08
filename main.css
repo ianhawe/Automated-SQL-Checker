@@ -6,8 +6,11 @@
 .flaggedQuestions{
     padding-bottom: 1%;
 }
-.flag {
-    margin-top: 110px;
+/* .saveExit{
+  margin-left: 1000px;
+} */
+.q1flag {
+    margin-top: 300px;
     background-color: white;
     
 }
@@ -28,9 +31,9 @@
 /* .randomPaddings{
  text-align: center;
 } */
-.flag {
+/* .flag {
    margin-top: 100px; 
-}
+} */
 .flaggedQ {
     color: red;
 }
