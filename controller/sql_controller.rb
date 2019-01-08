@@ -14,7 +14,7 @@ class SqlController < Sinatra::Base
         erb  :'posts/student_login'
     end
 
-    get 'student/question/1' do
+    get '/question/1' do
         erb  :'posts/question_one_page'
     end
 
