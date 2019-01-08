@@ -34,7 +34,10 @@ class SqlController < Sinatra::Base
     end
 
     get '/student/score' do
-        erb :'pages/score'
+        erb :'pages/score_page'
     end
 
+    get '/search' do
+        erb :'pages/search'
+    end
 end
