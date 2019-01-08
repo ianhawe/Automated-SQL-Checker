@@ -1,0 +1,25 @@
+    .score_page-result_table {
+    font-size: 15px;
+    }
+     
+    .score_page-result_row {
+    margin: 20px;
+    }
+     
+    .score_page-result_grey {
+    background-color: rgb(246, 246, 246);
+    }
+     
+    .score_page-result_grey_box {
+    border-bottom: solid 1px grey;
+    margin-bottom: 20px;
+    }
+     
+    /*
+    .result_table_border {
+    border: solid 5px green;;
+    } */
+     
+    .score_page-result_pass {
+    color: green;
+    }
