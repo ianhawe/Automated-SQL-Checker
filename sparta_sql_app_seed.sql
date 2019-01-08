@@ -33,6 +33,10 @@ TrainerID INT REFERENCES trainer(TrainerID),
 CourseID INT REFERENCES course(CourseID)
 );
 
+----------------------
+-- CONSTRAINTS
+----------------------
+
 ALTER TABLE student 
 ADD CONSTRAINT CHK_Email CHECK( Email LIKE '%@spartaglobal.com');
 
