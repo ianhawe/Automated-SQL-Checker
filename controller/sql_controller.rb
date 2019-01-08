@@ -7,7 +7,7 @@ class SqlController < Sinatra::Base
   set :views, Proc.new { File.join(root, "views") }
 
 
-    get '/' do
+    get '/search' do
         erb :'pages/admin_search'
     end
 end
