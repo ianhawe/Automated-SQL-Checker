@@ -5,6 +5,6 @@ class SqlController < Sinatra::Base
     set :views, Proc.new { File.join(root, "views") }
 
     get '/' do
-        erb :'question-one-page'
+        erb :'question_one_page'
     end
 end
