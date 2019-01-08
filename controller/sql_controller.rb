@@ -1,26 +1,40 @@
 class SqlController < Sinatra::Base 
 
-<<<<<<< HEAD
     set :root, File.join(File.dirname(__FILE__), '..')
 
     set :views, Proc.new { File.join(root, "views") }
 
-    get '/student/question/1' do
-        erb :'question_one_page'
+
+    get '/' do
+        erb :'pages/index'
     end
-=======
-    # sets root as the parent-directory of the current file
-  set :root, File.join(File.dirname(__FILE__), '..')
 
-  # sets the view directory correctly
-  set :views, Proc.new { File.join(root, "views") }
+    get '/student/login' do
+        erb :'pages/student_login'
+    end
+    
+    get '/admin/login' do
+        erb :'pages/admin_login'
+    end
 
- 
-  get '/question_three_page'  do
-    
-    erb :'question_three_page'
-    
-  end
->>>>>>> 83e35c14a0517eae00b704c7b9e58174995ae94f
+    get '/question/1' do
+        erb :'pages/question_one_page'
+    end
+
+    get '/question/2' do
+        erb :'pages/question_two_page'
+    end
+
+    get '/question/3' do
+        erb :'pages/question_three_page'
+    end
+
+    get '/review' do
+        erb :'pages/review_questions'
+    end
+
+    get '/student/score' do
+        erb :'pages/score'
+    end
 
 end
