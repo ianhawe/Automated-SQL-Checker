@@ -9,7 +9,5 @@ class SqlController < Sinatra::Base
     end
 
 
-    post '/question-one-page.erb' do
-
-    end
+    
 end
