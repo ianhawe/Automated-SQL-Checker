@@ -19,9 +19,7 @@
         <div class="col-lg-10">
         </div>
         <div class="col-lg-2">
-            <a href='/index'>
-                <button class="btn btn-danger" type="submit">Exit</button>
-            </a>
+            <%= erb(:'partials/exit') %>
         </div>
     </div>
 
@@ -29,8 +27,7 @@
         <div class="col-lg-2">
         </div>
         <div class="col-lg-8 result_grey_box">
-            <%# For admin would only show 'Score' %>
-            <p>Your Score:</p>
+            <p>Score:</p>
         </div>
         <div class="col-lg-2">
         </div>
@@ -118,8 +115,7 @@
         <div class="col-lg-2">
         </div>
         <div class="col-lg-8 result_grey_box">
-            <%# For admin would just show 'Result' %>
-            <p>Your Result:</p>
+            <p>Result:</p>
         </div>
         <div class="
             col-lg-2">
@@ -136,15 +132,9 @@
 
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-12 text-center">
-            <a href='/information.'>
-                <button class="btn btn-success" type="submit">Info</button>
-            </a>
-        </div>
-    </div>
-
-
+<footer>
+<%= erb(:'partials/footer') %>
+ </footer>
 <%# 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

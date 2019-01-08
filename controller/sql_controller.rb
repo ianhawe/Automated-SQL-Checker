@@ -5,16 +5,16 @@ class SqlController < Sinatra::Base
     # sets the view directory correctly
     set :views, Proc.new { File.join(root, "views") }
 
-    # get '/' do
-    #     "hello world"
-    # end
-
     get '/' do 
-        erb :index
+        erb :'pages/index'
     end
 
-    get '/score_page' do
-        erb :score_page
+    get '/student/score' do
+        erb :'pages/score_page'
+    end
+
+    get '/admin/score' do
+        erb :'pages/score_page'
     end
 
 end
