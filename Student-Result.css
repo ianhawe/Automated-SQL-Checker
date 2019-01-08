@@ -1,0 +1,25 @@
+.result_table {
+  font-size: 15px;
+  }
+   
+  .result_row {
+  margin: 20px;
+  }
+   
+  .result_grey {
+  background-color: rgb(246, 246, 246);
+  }
+   
+  .result_grey_box {
+  border-bottom: solid 1px grey;
+  margin-bottom: 20px;
+  }
+   
+  /*
+  .result_table_border {
+  border: solid 5px green;;
+  } */
+   
+  .result_pass {
+  color: green;
+  }

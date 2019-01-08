@@ -1,0 +1,42 @@
+body{
+  background-color: #01181b !important;
+}
+
+
+.login{
+  padding-top: 250px;
+}
+
+.sparta-logo{
+  width: 10%;
+  height: 10%;
+}
+
+.list-group-item{
+width: 100%;
+
+}
+
+.sql-header{
+  color: white;
+  text-align: center;
+  
+}
+
+
+.form-group{
+color: white;
+}
+
+.btn {
+ 
+ width: 100%;
+ /* background-color: #6a4c93; */
+ 
+}
+
+.scrollable {
+  height: 820px; /* or any value */
+  overflow-y: auto;
+  background-color: grey;
+}
