@@ -79,7 +79,7 @@ VALUES (01, 'Hibah', 'Abid','habid@spartaglobal.com','Acd3my1'),
  INSERT INTO student (CourseID, FirstName, LastName, Email, Password, Score)
  VALUES
  (04, 'Jim', 'Stevens','jsteven@spartaglobal.com','pacman2013', 15),
- (04, 'Jim', 'Stevens','jsteven@spartaglobal.com','pacman2013', 30);
+ (04, 'Lilly', 'Stephens','lstephen@spartaglobal.com','pacman2013', 30);
 
 INSERT INTO trainer (FirstName, LastName, Email, Password)
 VALUES
