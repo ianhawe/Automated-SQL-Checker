@@ -1,4 +1,5 @@
 class SqlController < Sinatra::Base 
+
     # sets root as the parent-directory of the current file
   set :root, File.join(File.dirname(__FILE__), '..')
 
@@ -11,10 +12,5 @@ class SqlController < Sinatra::Base
     erb :'question_three_page'
     
   end
-
-
-
-
-
 
 end
