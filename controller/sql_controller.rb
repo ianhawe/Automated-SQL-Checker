@@ -7,4 +7,7 @@ class SqlController < Sinatra::Base
     get '/' do
         erb :'question_one_page'
     end
+
+
+    
 end
