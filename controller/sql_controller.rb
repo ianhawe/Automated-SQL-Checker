@@ -1,5 +1,11 @@
 class SqlController < Sinatra::Base 
-    get '/' do
-        "hello world"
+
+    set :root, File.join(File.dirname(__FILE__), '..')
+
+    set :views, Proc.new { File.join(root, "views") }
+
+    get '/student/question/1' do
+        erb :'question_one_page'
     end
+
 end
