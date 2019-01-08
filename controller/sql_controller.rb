@@ -8,4 +8,5 @@ class SqlController < Sinatra::Base
     get '/question_two_page' do
         erb :'/question_two_page'
     end
+  
 end
