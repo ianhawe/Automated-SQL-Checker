@@ -17,4 +17,5 @@ class SqlController < Sinatra::Base
   get 'admin/search' do
       erb  :'pages/search'
   end
+  
 end
