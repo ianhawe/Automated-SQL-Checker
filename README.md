@@ -32,8 +32,3 @@ CourseName
 #Branch Naming Conventions
 
 - Branch off the correct branch.
-- i.e. wireframe.
-- create new branch
-- call it : wf_01_what-you-did
-- This breaks down as follows: Wireframe Branch,Version 01, what you've done
-
