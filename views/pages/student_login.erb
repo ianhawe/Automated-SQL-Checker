@@ -3,7 +3,7 @@
     crossorigin="anonymous">
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Student Login</title>
+<title>Admin Login</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" media="screen" href="<%= url('/main.css')%>" />
 
@@ -11,8 +11,8 @@
 </head>
 
 <body>
-
-<div>
+  
+  <div>
     <div class="login">
 
       <div class="row">
@@ -22,28 +22,30 @@
 
         <div class="col-lg-4">
           <div>
-            <h1 class="sql-header">Admin Login</h1>
+            <h1 class="sql-header">Student Login</h1>
 
             <form>
               <div class="form-group">
-                <label for="firstNameLabel">Email Address</label>
-                <input type="name" class="form-control" id="" aria-describedby="email" placeholder="First Name">
+                <label for="firstNameLabel">First Name</label>
+                <input type="name" class="form-control" id="" aria-describedby="firstName" placeholder="First Name">
               </div>
               <div class="form-group">
-                <label for="InputPassword1">Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <label for="lastNameLabel">Last Name</label>
+                <input type="name" class="form-control" id="" aria-describedby="lastName" placeholder="Last Name">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Course Name</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Eng21 / BA13">
               </div>
 
               <a href="/">
                 <button type="button" class="btn btn-primary">Back</button>
               </a>
 
-              <a href="/admin/search">
-                <button type="button" class="btn btn-primary">Login</button>
+              <a href="/question/1">
+                <button type="button" class="btn btn-primary">Start</button>
               </a>
             </form>
-            </form>
-
 
           </div>
         </div>

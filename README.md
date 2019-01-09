@@ -32,8 +32,7 @@ CourseName
 #Branch Naming Conventions
 
 - Branch off the correct branch.
-- i.e. wireframe.
+- i.e. wireframe(wf). 
 - create new branch
-- call it : wf_01_what-you-did
+- call it : wf_01_what-you-did, for backend its be, for db its db i.e. be_02_what-you-did,db_03_what-you-did
 - This breaks down as follows: Wireframe Branch,Version 01, what you've done
-
