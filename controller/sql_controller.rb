@@ -1,12 +1,24 @@
 class SqlController < Sinatra::Base 
+    helpers Sinatra::Cookies
 
     set :root, File.join(File.dirname(__FILE__), '..')
 
     set :views, Proc.new { File.join(root, "views") }
 
+    enable :sessions
+    use Rack::Session::Cookie, :key => 'my_app_key',
+                               :path => '/',
+                               :expire_after => 2000000, # In seconds
+                               :secret => 'secret_stuff'
+
     #index
     get '/' do
         erb :'pages/index'
+    end
+
+    #info
+    get '/info' do
+        erb :'pages/info_page'
     end
 
     #student route
@@ -43,8 +55,16 @@ class SqlController < Sinatra::Base
         erb :'pages/admin_search'
     end
     
-    get '/score' do
+    get '/admin/score' do
         erb :'pages/score_page'
+    end
+
+    get '/admin/create/course' do
+        erb :'pages/admin_create_course'
+    end
+
+    get '/admin/create/student' do
+        erb :'pages/admin_create_student'
     end
 
 end

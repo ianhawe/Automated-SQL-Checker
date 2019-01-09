@@ -1,3 +1,17 @@
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Admin Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" media="screen" href="<%= url('/main.css')%>" />
+
+<script src="main.js"></script>
+</head>
+
+<body>
+  
   <div>
     <div class="login">
 
@@ -8,7 +22,7 @@
 
         <div class="col-lg-4">
           <div>
-            <h1 class="sql-header">SQL Assessment</h1>
+            <h1 class="sql-header">Admin Login</h1>
 
             <form>
               <div class="form-group">
@@ -24,11 +38,14 @@
                 <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Eng21 / BA13">
               </div>
 
+              <a href="/">
+                <button type="button" class="btn btn-primary">Back</button>
+              </a>
+
               <a href="/admin/search">
                 <button type="button" class="btn btn-primary">Start</button>
               </a>
             </form>
-
 
           </div>
         </div>
@@ -37,9 +54,8 @@
         <div class="col-lg-4"></div>
       </div>
       <div class="row">
-        <a href="/index">
-              <button type="button" class="btn btn-primary">Back</button>
-        </a>
       </div>
     </div>
   </div>
+
+</body>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Admin Create Class</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="main.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row warning">
+      <h1>Create Course</h1>
+    </div>
+    <div class="row streamEnter">
+      <div class="col-lg-3"></div>
+
+      <div class="col-lg-6">
+        <form class="form-inline">
+          <div class="form-group mb-2">
+            <label for="staticEmail" class="sr-only">Course Name</label>
+            <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Course Name: ">
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="inputEmail" class="sr-only"></label>
+            <input type="text" class="form-control" id="inputEmail" placeholder="">
+          </div>
+
+        </form>
+
+        <form class="form-inline">
+          <div class="form-group mb-2">
+            <label for="staticFname" class="sr-only">Start Date</label>
+            <input type="text" readonly class="form-control-plaintext" id="staticFname" value="Start Date: ">
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="inputFname" class="sr-only"></label>
+            <input type="text" class="form-control" id="inputFname" placeholder="">
+          </div>
+
+        </form>
+
+        <form class="form-inline">
+          <div class="form-group mb-2">
+            <label for="staticLname" class="sr-only">End Dates</label>
+            <input type="text" readonly class="form-control-plaintext" id="staticLname" value="End date: ">
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="inputLname" class="sr-only"></label>
+            <input type="text" class="form-control" id="inputLname" placeholder="">
+          </div>
+        </form>
+
+        <form class="form-inline">
+          <div class="form-group mb-2">
+            <label for="staticLname" class="sr-only">Stream Type</label>
+            <input type="text" readonly class="form-control-plaintext" id="staticLname" value="Stream Type: ">
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="inputLname" class="sr-only"></label>
+            <input type="text" class="form-control" id="inputLname" placeholder="">
+          </div>
+        </form>
+
+        <form class="form-inline">
+          <button type="submit" class="btn btn-secondary mb-2">Submit</button>
+      </div>
+      </form>
+    </div>
+    <div class="col-lg-3">
+    </div>
+  </div>
+  <div class="row tableOfStudents">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Course Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Stream Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Eng-21</td>
+            <td>2018-11-12</td>
+            <td>2018-11-12</td>
+            <td>SDET</td>
+          </tr>
+          <tr>
+            <td>Eng-22</td>
+            <td>2018-11-12</td>
+            <td>2018-11-12</td>
+            <td>DevOps</td>
+          </tr>
+          <tr>
+            <td>Bus-19</td>
+            <td>2018-11-12</td>
+            <td>2018-11-12</td>
+            <td>PMO</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+  <div class="row createDelete"></div>
+    <div class="col-lg-12">
+      <a href="/admin/search"><button type="button" class="btn btn-primary">Back</button></a>
+    </div>
+  </div>
+
+</body>
+
+</html>
