@@ -4,17 +4,19 @@ class SqlController < Sinatra::Base
 
     set :views, Proc.new { File.join(root, "views") }
 
-
-    get '/asdpufphuasdhfpuasif' do
+    #index
+    get '/' do
         erb :'pages/index'
     end
 
+    #info
+    get '/info' do
+        erb :'pages/info_page'
+    end
+
+    #student route
     get '/student/login' do
         erb :'pages/student_login'
-    end
-    
-    get '/admin/login' do
-        erb :'pages/admin_login'
     end
 
     get '/question/1' do
@@ -29,7 +31,7 @@ class SqlController < Sinatra::Base
         erb :'pages/question_three_page'
     end
 
-    get '/review' do
+    get '/student/review' do
         erb :'pages/review_questions'
     end
 
@@ -37,15 +39,17 @@ class SqlController < Sinatra::Base
         erb :'pages/score_page'
     end
 
-    get '/search' do
+    #admin route
+    get '/admin/login' do
+        erb :'pages/admin_login'
+    end
+    
+    get '/admin/search' do
         erb :'pages/admin_search'
     end
-
+    
     get '/admin/score' do
         erb :'pages/score_page'
     end
 
-    get '/admin/review_student' do
-        erb :'pages/admin_student_review'
-    end
 end
