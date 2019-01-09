@@ -5,7 +5,7 @@ class SqlController < Sinatra::Base
     set :views, Proc.new { File.join(root, "views") }
 
 
-    get '/' do
+    get '/asdpufphuasdhfpuasif' do
         erb :'pages/index'
     end
 
