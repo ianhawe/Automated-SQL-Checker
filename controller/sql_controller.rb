@@ -27,14 +27,17 @@ class SqlController < Sinatra::Base
     end
 
     get '/question/1' do
+        @title = "Question 1"
         erb :'pages/question_one_page'
     end
 
     get '/question/2' do
+        @title = "Question 2"
         erb :'pages/question_two_page'
     end
 
     get '/question/3' do
+        @title = "Question 3"
         erb :'pages/question_three_page'
     end
 
