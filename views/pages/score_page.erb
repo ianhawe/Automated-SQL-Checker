@@ -2,13 +2,10 @@
     <div class="col-lg-2"></div>
     <div class="col-lg-8"></div>
     <div class="col-lg-2">
-        <a href="/"> <button type="button" class="btn btn-danger">Save & Exit</button></div></a>
+        <a href="/"> <button type="button" class="btn btn-danger">Exit</button></div></a>
 </div>
 
-<div class="row score_page-result_row">
-    <div class="col-lg-12">
-    </div>
-</div>
+
 
 <div class="row score_page-result_table">
     <div class="col-lg-2">
@@ -116,4 +113,21 @@
     </div>
     <div class="col-lg-2">
     </div>
+</div>
+
+<div class="row">
+        <div class="col-lg-2">
+        </div>
+        <div class="col-lg-4">
+        <%if(@admin_back_button==='admin_path')%>
+        <a href='/admin/search'><button type="button" class="btn btn-primary">Back</button></a>
+        <%end%>
+        </div>
+        <div class="col-lg-4">
+        <%if(@admin_info_button==='admin_path')%>
+        <a href='/admin/student/review'><button type="button" class="btn btn-info">More Info</button></a>
+        <%end%>
+        </div>
+        <div class="col-lg-2">
+        </div>
 </div>

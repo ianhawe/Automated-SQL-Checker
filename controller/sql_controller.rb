@@ -20,14 +20,29 @@ class SqlController < Sinatra::Base
     end
 
     get '/question/1' do
+        @title = "Question 1"
+        @next_review = "Next"
+        @link = '/question/2'
+        @backlink = '/student/login'
+        @back = "Back"
         erb :'pages/question_one_page'
     end
 
     get '/question/2' do
+        @title = "Question 2"
+        @next_review = "Next"
+        @link = '/question/3'
+        @backlink = '/question/1'
+        @back = "Back"
         erb :'pages/question_two_page'
     end
 
     get '/question/3' do
+        @title = "Question 3"
+        @next_review = "Review Questions"
+        @link = '/student/review'
+        @backlink = '/question/2'
+        @back = "Back"
         erb :'pages/question_three_page'
     end
 
@@ -49,6 +64,8 @@ class SqlController < Sinatra::Base
     end
     
     get '/admin/score' do
+        @admin_back_button = "admin_path"
+        @admin_info_button = "admin_path"
         erb :'pages/score_page'
     end
 

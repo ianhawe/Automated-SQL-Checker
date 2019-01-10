@@ -1,14 +1,4 @@
-<div class="row">
-    <div class="col-lg-2">
-        <h2>Question-2</h2>
-    </div>
-    <div class="col-lg-8"></div>
-    <div class="col-lg-2">
-        <div class="col-lg-2">
-            <a href="/"><button type="button" class="btn btn-danger">Save & Exit</button></div></a>
-    </div>
-</div>
-<br>
+<%= erb(:'partials/_header_questions', :layout => false) %>
 <div class="container">
     <table class="table table-bordered">
         <thead>
@@ -84,7 +74,7 @@
 <div class="row">
     <div class="col-lg-2"></div>
     <div class="col-lg-8">
-        <h4>2.1. Design and build suitable table. (10 marks)</h4>
+        <h4>2.1. Design and build a suitable table. (10 marks)</h4>
     </div>
     <div class="col-lg-2"></div>
 </div>
@@ -119,11 +109,4 @@
     <div class="col-lg-2"></div>
 </div>
 <br>
-<div class="row text-center">
-    <div class="col-lg-2">
-        <a href='/question/1'><button type="button" class="btn btn-primary">Back</button></div></a>
-    <div class="col-lg-8">
-        <a href='/info'><button type="button" class="btn btn-info">Info</button></div></a>
-    <div class="col-lg-2">
-        <a href='/question/3'> <button type="button" class="btn btn-primary">Next</button></div></a>
-</div>
+<%= erb(:'partials/_footer_questions', :layout => false) %>
