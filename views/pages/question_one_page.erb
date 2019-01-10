@@ -29,13 +29,14 @@
                         <div class="col-lg-8">
                             <form>
                                 <div class="form-group">
-                                    <label for="question-1-text" class="flaggedQ">Lorem ipsum dolor sit amet
-                                        consectetur
-                                        adipisicing elit.
-                                        Voluptates doloremque ratione vel omnis harum aspernatur repellat cupiditate
-                                        earum
-                                        obcaecati, eos temporibus quidem perferendis mollitia quos ducimus labore animi
-                                        similique nam.</label>
+
+                                <% @posts.each do |post| %>
+                                <%i=1%>
+                                <%if (i = 3)%>
+                                    <label for="question-pos-text" class="flaggedQ"><%= post.title%></label> 
+                                <%i=i+1%>
+                                <% end %>
+
                                     <textarea class="form-control" id="question-1-text" rows="3"></textarea>
                                 </div>
                             </form>
@@ -53,12 +54,7 @@
 
                             <form>
                                 <div class="form-group">
-                                    <label for="question-1-text">Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit.
-                                        Voluptates doloremque ratione vel omnis harum aspernatur repellat cupiditate
-                                        earum
-                                        obcaecati, eos temporibus quidem perferendis mollitia quos ducimus labore animi
-                                        similique nam.</label>
+                                    <label for="question-1-text"><%= @question1%></label>
                                     <textarea class="form-control " rows="3"></textarea>
                                 </div>
                             </form>

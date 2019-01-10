@@ -27,6 +27,8 @@ class SqlController < Sinatra::Base
     end
 
     get '/question/1' do
+        @posts = Post.all
+        
         erb :'pages/question_one_page'
     end
 

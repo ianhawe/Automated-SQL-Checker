@@ -35,15 +35,15 @@ CourseID INT REFERENCES course(CourseID)
 
 CREATE TABLE test (
 TestID SERIAL PRIMARY KEY,
-TotalScore INT,
+TotalScore INT
 );
 
 CREATE TABLE question (
 QuestionID SERIAL PRIMARY KEY,
-Question VARCHAR(255) NOT NULL, 
-CorrectAnswer VARCHAR(255), 
+Question TEXT NOT NULL, 
+CorrectAnswer TEXT, 
 QuestionScore INT, 
-TestID INT REFERENCES test(TestID),
+TestID INT REFERENCES test(TestID)
 );
 
 
@@ -51,20 +51,18 @@ CREATE TABLE student_test (
 StudentTestID SERIAL PRIMARY KEY,
 TestID INT REFERENCES test(TestID),
 ScoreAchieved INT,
-StudentID INT REFERENCES student(StudentID),
+StudentID INT REFERENCES student(StudentID)
 );
 
 
 CREATE TABLE StudentAnswer (
   QuestionID INT REFERENCES question(QuestionID),
-  Answer VARCHAR(MAX),
-  StudentTestID INT REFERENCES student_test(StudentTestID),
+  Answer TEXT,
+  StudentTestID INT REFERENCES student_test(StudentTestID)
 );
 
 
-----------------------
--- CONSTRAINTS
-----------------------
+
 
 ALTER TABLE student 
 ADD CONSTRAINT CHK_Email CHECK( Email LIKE '%@spartaglobal.com');
@@ -72,9 +70,7 @@ ADD CONSTRAINT CHK_Email CHECK( Email LIKE '%@spartaglobal.com');
 ALTER TABLE trainer 
 ADD CONSTRAINT CHK_Email CHECK( Email LIKE '%@spartaglobal.com');
 
-----------------------
--- INSERT DATA
-----------------------
+
 
 INSERT INTO course(CourseName, StartDate, EndDate, StreamType) 
 VALUES ('Engineering-21','2018-11-12', '2018-02-28', 'SDET'), 
@@ -119,6 +115,9 @@ VALUES
  ('Artur', 'Kondas', 'akondas@spartaglobal.com', 'ducks');
 
 INSERT INTO course_trainer (TrainerID, CourseID) VALUES (01, 04), (02,03), (04,01);
+
+INSERT INTO test (TotalScore) VALUES  (50);
+
 
 INSERT INTO question (Question, CorrectAnswer, QuestionScore, TestID)
 VALUES
@@ -321,4 +320,4 @@ ALTER TABLE Rooms
 ADD  CHECK (Capacity<=25)
 
 ALTER TABLE CourseScheduleTrainers
-ADD CHECK(TrainerType ="A" OR TrainerType = "T")', 2, 1),
+ADD CHECK(TrainerType ="A" OR TrainerType = "T")', 2, 1);
