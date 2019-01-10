@@ -13,7 +13,11 @@ class SqlController < Sinatra::Base
 
     #index
     get '/' do
+
+        @title = "SQL Assessment"
+
         erb :'pages/index'
+        
     end
 
     #info
