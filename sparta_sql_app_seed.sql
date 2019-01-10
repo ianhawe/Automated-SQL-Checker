@@ -124,7 +124,7 @@ INSERT INTO question (Question, CorrectAnswer, QuestionScore, TestID)
 VALUES
  ('1.1 Write a query that lists all Customers in either Paris or London. Include Customer ID, Company Name and all address fields.', 'SELECT * FROM Customers
 WHERE City = "London" OR City = "Paris"', 5, 1),
- ('List all products stored in bottles.', 'SELECT QuantityPerUnit FROM Products
+ ('1.2 List all products stored in bottles.', 'SELECT QuantityPerUnit FROM Products
 WHERE QuantityPerUnit LIKE "%bottle%"', 5, 1),
  ('1.3 Repeat question above, but add in the Supplier Name and Country.', 'SELECT QuantityPerUnit, s.CompanyName, s.Country FROM Products p
 INNER JOIN Suppliers s ON p.SupplierID = s.SupplierID
