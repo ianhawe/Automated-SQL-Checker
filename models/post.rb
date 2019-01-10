@@ -28,7 +28,7 @@ class Post
   
           conn = self.open_connection
   
-          sql = "SELECT Question FROM question;"
+          sql = "SELECT * FROM question"
           results = conn.exec(sql)
   
           # create an array of post objects
@@ -44,7 +44,7 @@ class Post
   
           conn = self.open_connection
   
-          sql = "SELECT * FROM question"
+          sql = "SELECT * FROM question WHERE"
   
           # PG always returns an array
           posts = conn.exec(sql)
@@ -73,6 +73,7 @@ class Post
   
     
       post.title = post_data['question']
+      post.id = post_data['questionid']
     #   post.body = post_data['body']
   
       post

@@ -28,17 +28,15 @@
                         </div>
                         <div class="col-lg-8">
                             <form>
+                                <% @posts.each do |post| %>
                                 <div class="form-group">
 
-                                <% @posts.each do |post| %>
-                                <%i=1%>
-                                <%if (i = 3)%>
+                                
                                     <label for="question-pos-text" class="flaggedQ"><%= post.title%></label> 
-                                <%i=i+1%>
-                                <% end %>
 
-                                    <textarea class="form-control" id="question-1-text" rows="3"></textarea>
+                                    <textarea class="form-control" id="question-<%= post.id %>-text" rows="3"></textarea>
                                 </div>
+                                <% end %>
                             </form>
                         </div>
                         <div class="col-lg-1">
@@ -54,7 +52,7 @@
 
                             <form>
                                 <div class="form-group">
-                                    <label for="question-1-text"><%= @question1%></label>
+                                    <label for="question-1-text"><%= %></label>
                                     <textarea class="form-control " rows="3"></textarea>
                                 </div>
                             </form>
