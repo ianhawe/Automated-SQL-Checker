@@ -154,7 +154,7 @@ PRIMARY KEY (Student_schedule_ID)
 CREATE TABLE Spartan(
 Student_ID int IDENTITY(1,1) UNIQUE,
 Spartan_name VARCHAR(20) NOT NULL,
-Course_name VARCHAR(20)
+Course_name VARCHAR(20),
 PRIMARY KEY (Student_ID)
 )
 
@@ -170,7 +170,7 @@ Course_ID int IDENTITY(1,1) UNIQUE,
 Course_name VARCHAR(20) NOT NULL,
 Academy_name VARCHAR(20),
 Room_name VARCHAR(20),
-Trainer_name VARCHAR(20)
+Trainer_name VARCHAR(20),
 PRIMARY KEY (Course_ID)
 )
 
@@ -233,7 +233,7 @@ AcademyID int NOT NULL,
 RoomID int NOT NULL,
 CourseID int NOT NULL,
 StartDate DATE,
-EndDate DATE
+EndDate DATE,
 PRIMARY KEY (CourseScheduleID)
 )
 
