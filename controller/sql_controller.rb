@@ -8,7 +8,7 @@ class SqlController < Sinatra::Base
     enable :sessions
     use Rack::Session::Cookie, :key => 'my_app_key',
                                :path => '/',
-                               :expire_after => 2000000, # In seconds
+                               :expire_after => 86400, # In seconds
                                :secret => 'secret_stuff'
 
     #index
