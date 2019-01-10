@@ -28,16 +28,28 @@ class SqlController < Sinatra::Base
 
     get '/question/1' do
         @title = "Question 1"
+        @next_review = "Next"
+        @link = '/question/2'
+        @backlink = '/student/login'
+        @back = "Back"
         erb :'pages/question_one_page'
     end
 
     get '/question/2' do
         @title = "Question 2"
+        @next_review = "Next"
+        @backlink = '/question/1'
+        @link = '/question/3'
+        @back = "Back"
         erb :'pages/question_two_page'
     end
 
     get '/question/3' do
         @title = "Question 3"
+        @next_review = "Review"
+        @backlink = '/question/2'
+        @link = '/student/review'
+        @back = "Back"
         erb :'pages/question_three_page'
     end
 
