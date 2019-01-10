@@ -22,13 +22,13 @@
                 </div>
                 <div class="col-lg-10 center">
 
-                    <div class="row question-1">
+                 <% @posts.each do |post| %>
+                    <div class="row question-<%= post.id %>">
                         <div class="col-lg-2">
-                            <h1>1.1</h1>
+                            <h1>Q<%= post.id %>.</h1>
                         </div>
                         <div class="col-lg-8">
                             <form>
-                                <% @posts.each do |post| %>
                                 <div class="form-group">
 
                                 
@@ -36,7 +36,6 @@
 
                                     <textarea class="form-control" id="question-<%= post.id %>-text" rows="3"></textarea>
                                 </div>
-                                <% end %>
                             </form>
                         </div>
                         <div class="col-lg-1">
@@ -44,44 +43,8 @@
                         </div>
                     </div>
 
-                    <div class="row question-2">
-                        <div class="col-lg-2">
-                            <h1>1.2</h1>
-                        </div>
-                        <div class="col-lg-8">
-
-                            <form>
-                                <div class="form-group">
-                                    <label for="question-1-text"><%= %></label>
-                                    <textarea class="form-control " rows="3"></textarea>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-lg-1">
-                            <button type="button" class="btn btn-light q1flag"><i class="fa fa-flag" style="font-size: 25px"></i></button>
-                        </div>
-                    </div>
-                    <div class="row question-3">
-
-                        <div class="col-lg-2">
-                            <h1>1.3</h1>
-                        </div>
-                        <div class="col-lg-8">
-
-                            <form>
-                                <div class="form-group">
-                                    <label for="question-1-text" class="flaggedQ">Lorem ipsum dolor sit amet
-                                        consectetur
-                                        adipisicing
-                                        elit.
-                                        Voluptates doloremque ratione vel omnis harum aspernatur repellat cupiditate
-                                        earum
-                                        obcaecati, eos temporibus quidem perferendis mollitia quos ducimus labore animi
-                                        similique nam.</label>
-                                    <textarea class="form-control" id="question-1-text" rows="3"></textarea>
-                                </div>
-                            </form>
-                        </div>
+                    <% end %>
+                
                         <div class="col-lg-1">
                             
                             <button type="button" class="btn btn-light q1flag"><i class="fa fa-flag"></i></button>

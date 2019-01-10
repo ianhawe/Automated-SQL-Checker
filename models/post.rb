@@ -2,21 +2,21 @@ class Post
 
     attr_accessor :id, :title, :body
   
-    # def save
+    def save
   
-    #     conn = Post.open_connection
+        conn = Post.open_connection
   
-    #     if(!self.id) 
-    #       # Insert a new record in to the database
-    #       sql = "INSERT INTO post (title , body) VALUES ( 'hello world ahhaah', 'hello world shshhahshh')"
-    #     else 
-    #       # Update an existing one
-    #       sql = "UPDATE post SET title='kjashdkajsdha', body='askdjakjdhaskj' WHERE id = #{self.id}"
-    #     end
+        if(!self.id) 
+          # Insert a new record in to the database
+          sql = "INSERT INTO studentanswer (questionid , answer) VALUES ( post.id, 'question-#{post.id}-text')"
+        else 
+          # Update an existing one
+          sql = "UPDATE post SET title='kjashdkajsdha', body='askdjakjdhaskj' WHERE id = #{self.id}"
+        end
   
-    #     conn.exec(sql)
+        conn.exec(sql)
   
-    # end
+    end
   
     def self.open_connection
   
@@ -56,16 +56,6 @@ class Post
   
     end
   
-    # def self.destroy id
-  
-    #     conn = self.open_connection
-  
-    #     sql = "SELECT firstname FROM trainers WHERE trainerid = '1';"
-  
-    #     # handle delete here
-    #     conn.exec(sql)
-  
-    # end
   
     def self.hydrate post_data
   
