@@ -56,6 +56,8 @@ class SqlController < Sinatra::Base
     end
     
     get '/admin/score' do
+        @admin_back_button = "admin_path"
+        @admin_info_button = "admin_path"
         erb :'pages/score_page'
     end
 
@@ -66,5 +68,6 @@ class SqlController < Sinatra::Base
     get '/admin/add/question' do
         erb :'pages/admin_add_question'
     end
+
 
 end
