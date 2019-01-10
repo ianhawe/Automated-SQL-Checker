@@ -1,8 +1,15 @@
 class SqlController < Sinatra::Base 
+    helpers Sinatra::Cookies
 
     set :root, File.join(File.dirname(__FILE__), '..')
 
     set :views, Proc.new { File.join(root, "views") }
+
+    enable :sessions
+    use Rack::Session::Cookie, :key => 'my_app_key',
+                               :path => '/',
+                               :expire_after => 2000000, # In seconds
+                               :secret => 'secret_stuff'
 
     #index
     get '/' do
