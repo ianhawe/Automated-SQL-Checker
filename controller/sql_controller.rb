@@ -59,4 +59,12 @@ class SqlController < Sinatra::Base
         erb :'pages/score_page'
     end
 
+    get '/admin/student/review' do
+        erb :'pages/admin_student_review'
+    end
+
+    get '/admin/add/question' do
+        erb :'pages/admin_add_question'
+    end
+
 end
