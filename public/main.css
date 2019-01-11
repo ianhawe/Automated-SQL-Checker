@@ -1,62 +1,65 @@
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.btn{
+    margin: 40px;
+}
+
 .top{
     padding-bottom: 5%;
 }
+
 .flaggedQuestions{
     padding-bottom: 1%;
 }
-/* .saveExit{
-  margin-left: 1000px;
-} */
+
 .q1flag {
     margin-top: 300px;
     background-color: white;
     
 }
+
 .textbox{
     width: 800px;
     height:100px;
 }
+
 .paddingTB{
     padding-top:40px;
 }
+
 .paddingTB1{
     padding-top:40px;
 }
+
 .largerTB{
     width: 100%;
     height:200px;
 }
-/* .randomPaddings{
- text-align: center;
-} */
-/* .flag {
-   margin-top: 100px; 
-} */
+
 .flaggedQ {
     color: red;
 }
 
 .empty-side-right{
-float: right;
-padding-bottom: 20px;
+    float: right;
+    padding-bottom: 20px;
 }
 
 .submit{
-margin-left: 110px;
-padding-left: 56px;
-padding-right: 56px;
+    margin-left: 110px;
+    padding-left: 56px;
+    padding-right: 56px;
 }
 
 .backBtn{
     padding-left: 56px;
-
     padding-right: 56px;
-
 }
 
 .empty-side-left{
-margin-top: 910px
-
+    margin-top: 910px
 }
