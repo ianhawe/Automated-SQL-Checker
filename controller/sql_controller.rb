@@ -22,11 +22,11 @@ class SqlController < Sinatra::Base
     end
 
     #student route
-    get '/student/login' do
+    get '/student_login' do
         erb :'pages/student_login'
     end
 
-    get '/question/1' do
+    get '/question_1' do
         @title = "Question 1"
         @next_review = "Next"
         @link = '/question/2'
@@ -35,7 +35,7 @@ class SqlController < Sinatra::Base
         erb :'pages/question_one_page'
     end
 
-    get '/question/2' do
+    get '/question_2' do
         @title = "Question 2"
         @next_review = "Next"
         @link = '/question/3'
@@ -44,7 +44,7 @@ class SqlController < Sinatra::Base
         erb :'pages/question_two_page'
     end
 
-    get '/question/3' do
+    get '/question_3' do
         @title = "Question 3"
         @next_review = "Review Questions"
         @link = '/student/review'
@@ -53,42 +53,42 @@ class SqlController < Sinatra::Base
         erb :'pages/question_three_page'
     end
 
-    get '/student/review' do
+    get '/student_review' do
         erb :'pages/review_questions'
     end
 
-    get '/student/score' do
+    get '/student_score' do
         erb :'pages/score_page'
     end
 
     #admin route
-    get '/admin/login' do
+    get '/admin_login' do
         erb :'pages/admin_login'
     end
     
-    get '/admin/search' do
+    get '/admin_search' do
         erb :'pages/admin_search'
     end
     
-    get '/admin/create/course' do
+    get '/admin_create_course' do
         erb :'pages/admin_create_course'
     end
 
-    get '/admin/create/student' do
+    get '/admin_create_student' do
         erb :'pages/admin_create_student'
     end
 
-    get '/admin/score' do
+    get '/admin_score' do
         @admin_back_button = "admin_path"
         @admin_info_button = "admin_path"
         erb :'pages/score_page'
     end
 
-    get '/admin/student/review' do
+    get '/admin_student_review' do
         erb :'pages/admin_student_review'
     end
 
-    get '/admin/add/question' do
+    get '/admin_add_question' do
         erb :'pages/admin_add_question'
     end
     
