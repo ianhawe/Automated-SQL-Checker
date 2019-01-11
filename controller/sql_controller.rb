@@ -27,9 +27,25 @@ class SqlController < Sinatra::Base
     end
 
     get '/question/1' do
-        @posts = Post.all
+        @posts = Question.all
         erb :'pages/question_one_page'
     end
+
+    post '/question/1' do
+    
+        post = Post.save
+    
+        # bind the values
+        post.answer ="question-#{post.id}-text".value
+    
+        # save the post
+        post.save
+
+
+    
+      
+        
+      end
 
     get '/question/2' do
         erb :'pages/question_two_page'

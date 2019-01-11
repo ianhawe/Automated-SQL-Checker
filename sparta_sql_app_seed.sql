@@ -40,7 +40,8 @@ TotalScore INT
 
 CREATE TABLE question (
 QuestionID SERIAL PRIMARY KEY,
-Question TEXT NOT NULL, 
+Question TEXT NOT NULL,
+QuestionType VARCHAR(15) NOT NULL,  
 CorrectAnswer TEXT, 
 QuestionScore INT, 
 TestID INT REFERENCES test(TestID)
@@ -55,13 +56,11 @@ StudentID INT REFERENCES student(StudentID)
 );
 
 
-CREATE TABLE StudentAnswer (
+CREATE TABLE student_answer (
   QuestionID INT REFERENCES question(QuestionID),
   Answer TEXT,
   StudentTestID INT REFERENCES student_test(StudentTestID)
 );
-
-
 
 
 ALTER TABLE student 
@@ -69,8 +68,6 @@ ADD CONSTRAINT CHK_Email CHECK( Email LIKE '%@spartaglobal.com');
 
 ALTER TABLE trainer 
 ADD CONSTRAINT CHK_Email CHECK( Email LIKE '%@spartaglobal.com');
-
-
 
 INSERT INTO course(CourseName, StartDate, EndDate, StreamType) 
 VALUES ('Engineering-21','2018-11-12', '2018-02-28', 'SDET'), 
@@ -80,7 +77,7 @@ VALUES ('Engineering-21','2018-11-12', '2018-02-28', 'SDET'),
 
 INSERT INTO course(CourseName) VALUES ('Business 10'), ('Engineering-01'), ('BIZ 3');
 
-INSERT INTO student (CourseID, FirstName, LastName, Email, Password,)
+INSERT INTO student (CourseID, FirstName, LastName, Email, Password)
 VALUES (01, 'Hibah', 'Abid','habid@spartaglobal.com','Acd3my1'),
  (01, 'Kirpal', 'Seehra','kseehra@spartaglobal.com','Acd3my1'),
  (01, 'Emem', 'Umoh','eumoh@spartaglobal.com','Acd3my1'),
@@ -104,7 +101,7 @@ VALUES (01, 'Hibah', 'Abid','habid@spartaglobal.com','Acd3my1'),
  INSERT INTO student (CourseID, FirstName, LastName, Email, Password, DBType)
  VALUES
  (04, 'Jim', 'Stevens','jsteven@spartaglobal.com','pacman2013', 'sql'),
- (04, 'Lilly', 'Stephens','lstephen@spartaglobal.com','pacman2013', 'psql');
+ (04, 'Lilly', 'Stephens','lstephen@spartaglobal.com','pacman2013', 'psql'),
  (03, 'Sharon', 'Lee','Slee@spartaglobal.com','hello2123', 'mysql');
 
 INSERT INTO trainer (FirstName, LastName, Email, Password)
@@ -119,31 +116,31 @@ INSERT INTO course_trainer (TrainerID, CourseID) VALUES (01, 04), (02,03), (04,0
 INSERT INTO test (TotalScore) VALUES  (50);
 
 
-INSERT INTO question (Question, CorrectAnswer, QuestionScore, TestID)
+INSERT INTO question (Question, QuestionType, CorrectAnswer, QuestionScore, TestID)
 VALUES
- ('1.1 Write a query that lists all Customers in either Paris or London. Include Customer ID, Company Name and all address fields.', 'SELECT * FROM Customers
+ ('Write a query that lists all Customers in either Paris or London. Include Customer ID, Company Name and all address fields.', 'Beginner','SELECT * FROM Customers
 WHERE City = "London" OR City = "Paris"', 5, 1),
- ('1.2 List all products stored in bottles.', 'SELECT QuantityPerUnit FROM Products
+ ('List all products stored in bottles.', 'Beginner' ,'SELECT QuantityPerUnit FROM Products
 WHERE QuantityPerUnit LIKE "%bottle%"', 5, 1),
- ('1.3 Repeat question above, but add in the Supplier Name and Country.', 'SELECT QuantityPerUnit, s.CompanyName, s.Country FROM Products p
+ ('Repeat question above, but add in the Supplier Name and Country.', 'Beginner' ,'SELECT QuantityPerUnit, s.CompanyName, s.Country FROM Products p
 INNER JOIN Suppliers s ON p.SupplierID = s.SupplierID
 WHERE QuantityPerUnit LIKE "%bottle%"', 5, 1),
- ('1.4 Write an SQL Statement that shows how many products there are in each category. Include Category Name in result set and list the highest number first.', 'SELECT c.CategoryName, COUNT(*) AS "Number Of Products"
+ ('Write an SQL Statement that shows how many products there are in each category. Include Category Name in result set and list the highest number first.','Beginner','SELECT c.CategoryName, COUNT(*) AS "Number Of Products"
 FROM Products p
 INNER JOIN Categories c ON p.CategoryID = c.CategoryID 
 GROUP BY c.CategoryName 
 ORDER by "Number of Products" DESC;', 5, 1),
- ('1.5 List all UK employees using concatenation to join their title of courtesy, first name and last name together. Also include their city of residence.', 'SELECT TitleOfCourtesy + " "+ FirstName + " " + LastName AS "title and name", City
+ ('List all UK employees using concatenation to join their title of courtesy, first name and last name together. Also include their city of residence.', 'Beginner','SELECT TitleOfCourtesy + " "+ FirstName + " " + LastName AS "title and name", City
 FROM Employees 
 WHERE Country = "UK"', 5, 1),
- ('1.6 List Sales Totals for all Sales Regions (via the Territories table using 4 joins) with a Sales Total greater than 1,000,000. Use rounding or FORMAT to present the numbers.', 'answer', 5, 1),
- ('1.7 Count how many Orders have a Freight amount greater than 100.00 and either USA or UK as Ship Country.', 'SELECT COUNT(*) AS "Orders with over 100 Freight"
+ ('List Sales Totals for all Sales Regions (via the Territories table using 4 joins) with a Sales Total greater than 1,000,000. Use rounding or FORMAT to present the numbers.','Beginner' ,'answer', 5, 1),
+ ('Count how many Orders have a Freight amount greater than 100.00 and either USA or UK as Ship Country.', 'Beginner' ,'SELECT COUNT(*) AS "Orders with over 100 Freight"
 FROM Orders
 WHERE Freight > 100 AND (ShipCountry="USA" OR ShipCountry="UK")', 5, 1),
- ('1.8 Write an SQL Statement to identify the Order Number of the Order with the highest amount of discount applied to that order.', 'SELECT TOP 1 OrderID, Discount
+ ('Write an SQL Statement to identify the Order Number of the Order with the highest amount of discount applied to that order.','Beginner' ,'SELECT TOP 1 OrderID, Discount
 FROM [Order Details]
 ORDER BY Discount DESC', 5, 1),
- ('2.1 Design and build a suitable set of fully normalised tables to store the following information', 'CREATE TABLE Coures_schedule(
+ ('Design and build a suitable set of fully normalised tables to store the following information', 'Intermediate','CREATE TABLE Coures_schedule(
 Student_schedule_ID int IDENTITY(1,1) UNIQUE,
 Spartan_ID INT NOT NULL,
 Course_ID INT NOT NULL
@@ -193,8 +190,8 @@ PRIMARY KEY (Staff_ID)
 
 
 USE SpartaGlobal;', 10, 1),
- ('2.2 One that contains all statements required to create and re-create this database. DDL only.
-NOTE: You will be provided with the DML file which contains all of the INSERT statements required to populate the tables as per the example given. (20 marks) IMPORTANT: Some tables will need the IDENTITY keyword to match this DML exactly.', 'CREATE TABLE Rooms(
+ ('One that contains all statements required to create and re-create this database. DDL only.
+NOTE: You will be provided with the DML file which contains all of the INSERT statements required to populate the tables as per the example given. IMPORTANT: Some tables will need the IDENTITY keyword to match this DML exactly.','Intermediate' ,'CREATE TABLE Rooms(
 RoomID int IDENTITY(1,1) UNIQUE,
 AcademyID int NOT NULL,
 RoomName VARCHAR(20) NOT NULL,
@@ -247,7 +244,7 @@ CourseScheduleID int NOT NULL,
 AttendeeID int NOT NULL,
 Active BIT
 )', 10, 1),
- ('2.3 Add more sample data to include all current trainers and at least one TA (Training Assistant) and Spartans on your current course. (Included in above marks)', 'INSERT INTO [Employees]
+ ('Add more sample data to include all current trainers and at least one TA (Training Assistant) and Spartans on your current course.', 'Intermediate' ,'INSERT INTO [Employees]
            ([FirstName]
            ,[LastName]
            ,[EmployeeType]
@@ -258,7 +255,7 @@ Active BIT
 	 		     ("Ian","Hawe","S","2018-11-12")', 5, 1),
 
 
- ('3.1 Produce a report similar to the above table (see 2.1) from all 7 tables using one SQL statement (use FORMAT for the dates). (10 marks)', 'SELECT cc.CourseName, cs.StartDate, cs.EndDate, AcademyName, RoomName, e.FirstName + " "  + e.LastName AS "Trainers", es.FirstName + " "  + es.LastName AS "Spartans" 
+ ('Produce a report similar to the above table (see 2.1) from all 7 tables using one SQL statement (use FORMAT for the dates).','Advanced' ,'SELECT cc.CourseName, cs.StartDate, cs.EndDate, AcademyName, RoomName, e.FirstName + " "  + e.LastName AS "Trainers", es.FirstName + " "  + es.LastName AS "Spartans" 
 FROM CourseSchedule cs
 INNER JOIN CourseCatalog cc ON cc.CourseID = cs.CourseID
 INNER JOIN Academies a ON cs.AcademyID = a.AcademyID
@@ -267,7 +264,7 @@ INNER JOIN CourseScheduleTrainers cst ON cs.CourseScheduleID = cst.CourseSchedul
 INNER JOIN CourseScheduleAttendees csa ON cs.CourseScheduleID = csa.CourseScheduleID
 INNER JOIN Employees e ON cst.TrainerID = e.EmployeesID
 INNER JOIN Employees es ON csa.AttendeeID = es.EmployeesID', 10, 1),
- ('3.2 Repeat 3.1 above but replace the Spartan Name column with Spartan Initials. (5 marks)', 'SELECT cc.CourseName, cs.StartDate, cs.EndDate, AcademyName, RoomName, e.FirstName + " "  + e.LastName AS "Trainers", LEFT(es.FirstName,1) + " "  + LEFT(es.LastName,1) AS "Spartans" 
+ ('Repeat previous question above but replace the Spartan Name column with Spartan Initials.','Advanced' ,'SELECT cc.CourseName, cs.StartDate, cs.EndDate, AcademyName, RoomName, e.FirstName + " "  + e.LastName AS "Trainers", LEFT(es.FirstName,1) + " "  + LEFT(es.LastName,1) AS "Spartans" 
 FROM CourseSchedule cs
 INNER JOIN CourseCatalog cc ON cc.CourseID = cs.CourseID
 INNER JOIN Academies a ON cs.AcademyID = a.AcademyID
@@ -276,7 +273,7 @@ INNER JOIN CourseScheduleTrainers cst ON cs.CourseScheduleID = cst.CourseSchedul
 INNER JOIN CourseScheduleAttendees csa ON cs.CourseScheduleID = csa.CourseScheduleID
 INNER JOIN Employees e ON cst.TrainerID = e.EmployeesID
 INNER JOIN Employees es ON csa.AttendeeID = es.EmployeesID', 5, 1),
- ('3.3 Add a new column after End Date headed “Check Date” which uses the DATEADD function to add 8 weeks to the Start Date column for BA Test courses and 12 weeks for any others. (5 marks)', 'SELECT cc.CourseName, cs.StartDate, cs.EndDate,
+ ('Add a new column after End Date headed “Check Date” which uses the DATEADD function to add 8 weeks to the Start Date column for BA Test courses and 12 weeks for any others.', 'Advanced','SELECT cc.CourseName, cs.StartDate, cs.EndDate,
 (SELECT CASE
 WHEN cc.CourseName = "BA-Test" THEN DATEADD(WEEK, 8, cs.StartDate)
 ELSE DATEADD(WEEK, 12, cs.StartDate) END) AS "CheckDate",
@@ -290,7 +287,7 @@ INNER JOIN CourseScheduleAttendees csa ON cs.CourseScheduleID = csa.CourseSchedu
 INNER JOIN Employees e ON cst.TrainerID = e.EmployeesID
 INNER JOIN Employees es ON csa.AttendeeID = es.EmployeesID
 ', 5, 1),
- ('4.1 Add Primary Keys and Foreign Keys to the Sparta Academy database, where needed. (If not already included).', 'ALTER TABLE Rooms
+ ('Add Primary Keys and Foreign Keys to the Sparta Academy database, where needed. (If not already included).', 'Advanced' ,'ALTER TABLE Rooms
 ADD FOREIGN KEY (AcademyID) REFERENCES Academies(AcademyID);
 
 ALTER TABLE CourseSchedule
@@ -313,7 +310,8 @@ ADD FOREIGN KEY (CourseScheduleID) REFERENCES CourseSchedule(CourseScheduleID);
 
 ALTER TABLE CourseScheduleAttendees
 ADD FOREIGN KEY (CourseScheduleID) REFERENCES CourseSchedule(CourseScheduleID);', 8, 1),
- ('4.2 Add constraints for other tables including Trainer Type ("T" Trainer or "A" Training Assistant) and Employee Type ("T" Trainer, "S" Spartan) and set a maximum capacity for Rooms to 25.', 'ALTER TABLE Rooms
+
+ (' Add constraints for other tables including Trainer Type ("T" Trainer or "A" Training Assistant) and Employee Type ("T" Trainer, "S" Spartan) and set a maximum capacity for Rooms to 25.','Advanced' ,'ALTER TABLE Rooms
 ALTER COLUMN Capacity INT;
 
 ALTER TABLE Rooms

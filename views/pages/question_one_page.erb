@@ -28,13 +28,14 @@
                             <h1>Q<%= post.id %>.</h1>
                         </div>
                         <div class="col-lg-8">
-                            <form>
+                            <form method = "POST">
                                 <div class="form-group">
 
                                 
-                                    <label for="question-pos-text" class="flaggedQ"><%= post.title%></label> 
-
-                                    <textarea class="form-control" id="question-<%= post.id %>-text" rows="3"></textarea>
+                                    <label for="question-pos-text" class="flaggedQ"><%= post.question%></label> 
+                                    <% if(post.id) %>
+                                    <textarea class="form-control" id="question-<%= post.id %>-text" rows="3" method = "POST"><%= post.studentanswer %></textarea>
+                                    <% end %>
                                 </div>
                             </form>
                         </div>
