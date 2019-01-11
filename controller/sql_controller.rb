@@ -70,11 +70,11 @@ class SqlController < Sinatra::Base
         erb :'pages/admin_search'
     end
     
-    get '/admin/create_course' do
+    get '/admin_create_course' do
         erb :'pages/admin_create_course'
     end
 
-    get '/admin/create_student' do
+    get '/admin_create_student' do
         erb :'pages/admin_create_student'
     end
 
@@ -86,6 +86,10 @@ class SqlController < Sinatra::Base
 
     get '/admin_student_review' do
         erb :'pages/admin_student_review'
+    end
+
+    get '/admin_add_question' do
+        erb :'pages/admin_add_question'
     end
     
 end
