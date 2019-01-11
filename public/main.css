@@ -1,7 +1,7 @@
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 body {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .btn{
@@ -17,9 +17,7 @@ body {
 }
 
 .q1flag {
-    margin-top: 30px;
     background-color: white;
-    
 }
 
 .textbox{
