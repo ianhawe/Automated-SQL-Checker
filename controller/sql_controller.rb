@@ -69,15 +69,23 @@ class SqlController < Sinatra::Base
     get '/admin/search' do
         erb :'pages/admin_search'
     end
-
-    get '/admin/student/review' do
-        erb :'pages/admin_student_review'
-    end
     
+    get '/admin/create/course' do
+        erb :'pages/admin_create_course'
+    end
+
+    get '/admin/create/student' do
+        erb :'pages/admin_create_student'
+    end
+
     get '/admin/score' do
         @admin_back_button = "admin_path"
         @admin_info_button = "admin_path"
         erb :'pages/score_page'
     end
 
+    get '/admin/student/review' do
+        erb :'pages/admin_student_review'
+    end
+    
 end

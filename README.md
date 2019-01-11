@@ -1,38 +1,51 @@
-# SQL_Automated_query_check
-# Automated-SQL-Query-Checker
-# Automated-SQL-Checker
+#Sparta-Project-2 / SQL-Automation-Checker-App
 
-#GitHub
+#Description
 
-Communicate when uploading.
-Once one person uploads, the other pulls. 
-Then the next person uploads
-We keep this going till we’re all uploaded.
-This will avoid all merge conflicts period.
+For this project, we have created an automated SQL checker application which automatically compares the answers written by trainees during their SQL assessment against the expected answers stored in a created database. Once trainees have completed their assessments, test results are produced for the trainers in Sparta Global which avoids the chance of human error or ambiguities when marking the assessments manually. The automated application provides an efficient way for trainers to evaluate their streams as a collective as well as individual trainee performance.
 
+#Technologies used
 
-#How to name stuff:
+Ruby
+JavaScript
+HTML
+CSS
+Jira
+GitHub
+Microsoft Teams
+VS Code
+Google Chrome Dev Tools
 
-Files
-File names: a_b_c_d_e_f_g.rb
-Partial file names are as follows: _a.rb
+#Frameworks/Libraries?
 
-#Inside Files
-Variables including function names: this_is_how_we_do_it
-Class names are PasCal: ThisIsHowWeDoIt
+Sinatra?
+Bootstrap?
 
-Title all functions with a comment.
+#Prerequisites/Installation
 
-#Table naming conventions(DB)
-All lower case for table separated by _
-Field names should be written as follows:
-CourseID
-CourseName
+Install a text editor such as Visual Studio Code
+Install the latest version of Ruby
 
-#Branch Naming Conventions
+#Configuration
 
-- Branch off the correct branch.
-- i.e. wireframe(wf). 
-- create new branch
-- call it : wf_01_what-you-did, for backend its be, for db its db i.e. be_02_what-you-did,db_03_what-you-did
-- This breaks down as follows: Wireframe Branch,Version 01, what you've done
+Copy/Clone the URL on GitHub into your own terminal
+Unzip the file into a selected directory on own local device
+Open the local folder in a selected text editor e.g. Visual Studio Code
+Run "rackup" inside the terminal of the text editor
+Open a selected web browser and type "localhost:[port-number]" shown in your terminal in the web browser URL e.g. localhost:9292
+
+#You can view the page https://github.com/ianhawe/Automated-SQL-Checker/.
+
+#Challenges (you can include images and code block here)
+
+Connecting with the TAR file
+Normalisation of the database tables
+Translating the SQL queries from the student selected SQL language (datatypes)
+Calling from the API
+Sessions and cookies
+Time constraints
+
+#Learning points
+
+Better understanding of Ruby/Sinatra and how to apply gems in a full stack application
+Understanding the importance of normalisation within database schemas
