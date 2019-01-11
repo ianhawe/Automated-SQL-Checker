@@ -49,3 +49,7 @@ Time constraints
 
 Better understanding of Ruby/Sinatra and how to apply gems in a full stack application
 Understanding the importance of normalisation within database schemas
+
+<!-- Drop down admin search -->
+
+<!-- Add search bar dynmaic -->
