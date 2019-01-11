@@ -51,5 +51,11 @@ class Question
       post
   
     end
+
+    def self.check post
+      something = post.map {}
+      things = things.to_s.tr("\n\t""").strip.split(/ /)
+    end
+
   
   end
