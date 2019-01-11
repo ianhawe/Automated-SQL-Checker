@@ -3,5 +3,5 @@ function goback() {
 }
 
 function successMessage() {
-    alert("I am an alert box!");
+    alert("Successfully Added");
 }

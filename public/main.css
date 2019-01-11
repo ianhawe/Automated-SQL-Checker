@@ -17,7 +17,7 @@ body {
 }
 
 .q1flag {
-    margin-top: 300px;
+    margin-top: 30px;
     background-color: white;
     
 }
@@ -58,8 +58,4 @@ body {
 .backBtn{
     padding-left: 56px;
     padding-right: 56px;
-}
-
-.empty-side-left{
-    margin-top: 910px
 }
