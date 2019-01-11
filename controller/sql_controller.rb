@@ -69,6 +69,10 @@ class SqlController < Sinatra::Base
     get '/admin/search' do
         erb :'pages/admin_search'
     end
+
+    get '/admin/student/review' do
+        erb :'pages/admin_student_review'
+    end
     
     get '/admin/score' do
         @admin_back_button = "admin_path"
