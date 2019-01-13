@@ -44,16 +44,16 @@
             <div class="col-lg-2">
             </div>
             <div class="col-lg-2 score_page-result_grey">
-                <p><b>Name</b></p>
+                <p><b><%= @firstname%></b></p>
             </div>
             <div class="col-lg-2 score_page-result_grey">
-                <p>John Smith</p>
+                <p><%= @lastname%></p>
             </div>
             <div class="col-lg-2 score_page-result_grey">
                 <p><b>Score</b></p>
             </div>
             <div class="col-lg-2 score_page-result_grey">
-                <p>0 / 30 Points ( 0% )</p>
+                <p><%= @score%></p>
             </div>
             <div class="col-lg-2">
             </div>
@@ -66,7 +66,7 @@
                 <p><b>Correct Answers</b></p>
             </div>
             <div class="col-lg-2">
-                <p>1</p>
+                <p><%= @countcorrect%></p>
             </div>
             <div class="col-lg-2">
                 <p><b>Incorrect answers</b></p>

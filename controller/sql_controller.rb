@@ -84,6 +84,29 @@ class SqlController < Sinatra::Base
     end
 
     get '/student/score' do
+       
+        @score = 0;
+        @countcorrect = 0;
+        @checks = Checkanswer.all
+        @checks.each do |check|
+            @givescore = check.questionscore.to_i
+            correctanswer = check.correctanswer
+            givenanswer = check.studentanswer
+            correctanswer_str = correctanswer.split(' ').sort
+            givenanswer_str = givenanswer.split(' ').sort
+            if (correctanswer_str.length === givenanswer_str.length)
+                
+                if(correctanswer_str === givenanswer_str)
+                    @score = @givescore + @score
+                    @countcorrect = @countcorrect + 1;
+                end
+            end
+          @firstname = check.firstname
+          @lastname = check.lastname
+        end
+
+          
+            
         erb :'pages/score_page'
     end
 

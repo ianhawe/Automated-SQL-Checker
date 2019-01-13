@@ -14,9 +14,9 @@ class Answer
         
         conn.exec(sql1)
         
-        sql = "INSERT INTO studentanswer (questionid , answer) VALUES (#{self.id},'#{self.studentanswer}')"
+        sql = "INSERT INTO studentanswer (questionid , answer, studenttestid) VALUES (#{self.id},'#{self.studentanswer}',1)"
 
-      conn.exec(sql)
+        conn.exec(sql)
 
   end
 
