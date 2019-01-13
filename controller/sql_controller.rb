@@ -53,9 +53,10 @@ class SqlController < Sinatra::Base
     
         # bind the values
         answer.studentanswer = params[:studentanswer]
-        answer.id = params[:id].to_i   
+        answer.id = params[:id].to_i
         # save the post
         answer.save
+        redirect "/question/1"
     end
 
     put '/question/1' do

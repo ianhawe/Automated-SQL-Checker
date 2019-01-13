@@ -6,14 +6,15 @@ class Answer
 
       conn = Answer.open_connection
 
-      if(!self.id) 
+    
         # Insert a new record in to the database
+        sql1 = "DELETE FROM studentanswer WHERE questionid = #{self.id}"
+        
+        
+        
+        conn.exec(sql1)
+        
         sql = "INSERT INTO studentanswer (questionid , answer) VALUES (#{self.id},'#{self.studentanswer}')"
-      else 
-        # Update an existing one
-        # sql = "INSERT INTO studentanswer (questionid , answer) VALUES ('2','boi')"
-        sql = "INSERT INTO studentanswer (questionid , answer) VALUES (#{self.id},'#{self.studentanswer}')"
-      end
 
       conn.exec(sql)
 
