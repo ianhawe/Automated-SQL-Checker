@@ -53,7 +53,7 @@ class SqlController < Sinatra::Base
     
         # bind the values
         answer.studentanswer = params[:studentanswer]
-        answer.id = params[:id]    
+        answer.id = params[:id].to_i   
         # save the post
         answer.save
     end
@@ -67,7 +67,6 @@ class SqlController < Sinatra::Base
         answer.id = params[:id]    
         # save the post
         answer.save
-        
     end 
 
 

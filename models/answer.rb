@@ -8,11 +8,11 @@ class Answer
 
       if(!self.id) 
         # Insert a new record in to the database
-        sql = "INSERT INTO studentanswer (questionid , answer) VALUES (#{self.id},'#{self.sudentanswer}')"
+        sql = "INSERT INTO studentanswer (questionid , answer) VALUES (#{self.id},'#{self.studentanswer}')"
       else 
         # Update an existing one
         # sql = "INSERT INTO studentanswer (questionid , answer) VALUES ('2','boi')"
-        sql = "UPDATE studentanswer SET answer= #{answer.studentanswer} WHERE questionid = #{self.id}"
+        sql = "INSERT INTO studentanswer (questionid , answer) VALUES (#{self.id},'#{self.studentanswer}')"
       end
 
       conn.exec(sql)
