@@ -59,6 +59,23 @@ class SqlController < Sinatra::Base
         redirect "/question/1"
     end
 
+
+    post '/student/login' do
+    
+        logins = Login.new
+        @email = params[:email]
+        @password = params[:password]
+        # bind the values
+        @logins.each do |login|
+            if(@email == login.email and @password == login.password)
+                redirect "/question/1"
+            end
+            
+        end
+        
+        redirect "student/login"
+    end
+
     put '/question/1' do
         
         id = params[:id].to_i
@@ -104,9 +121,7 @@ class SqlController < Sinatra::Base
           @firstname = check.firstname
           @lastname = check.lastname
         end
-
-          
-            
+        
         erb :'pages/score_page'
     end
 
