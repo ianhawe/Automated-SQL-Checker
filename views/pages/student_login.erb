@@ -29,26 +29,26 @@
 
             <form>
               <div class="form-group">
-                
-                <label for="firstNameLabel">First Name</label>
-                <input type="name" class="form-control" id="" aria-describedby="firstName" placeholder="First Name">
+            <form method = "POST" action ="/admin_search">
+                <label for="email">email</label>
+                <input type="text" name="email" class="form-control" id="" aria-describedby="firstName" placeholder="email adress">
               </div>
               <div class="form-group">
-                <label for="lastNameLabel">Last Name</label>
-                <input type="name" class="form-control" id="" aria-describedby="lastName" placeholder="Last Name">
+                <label for="password">password</label>
+                <input type="password" name="password" class="form-control" id="" aria-describedby="lastName" placeholder="Last Name">
               </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Course Name</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Eng21 / BA13">
-
-              </div>
+        
+              <input type="submit" value="Submit">
+            </form>
+            
 
               <a href="/">
+            
                 <button type="button" class="btn btn-primary">Back</button>
               </a>
 
               <a href="/question/1">
-
+            
                 <button type="button" class="btn btn-primary">Login</button>
               </a>
             </form>

@@ -6,15 +6,17 @@ class Question
   
         conn = Question.open_connection
   
-        if(!self.id) 
+        if("question-#{post.id}-text") 
           # Insert a new record in to the database
-          sql = "INSERT INTO studentanswer (questionid , answer) VALUES ( post.id, 'question-#{self.id}-text.value')"
+          sql = "INSERT INTO studentanswer (questionid , answer) VALUES ( post.id, '#{self.id.value}')"
+         hello = self.id.value
         else 
           # Update an existing one
-          sql = "UPDATE studentanswer SET answer='question-#{post.id}-text.value', questionid='#{self.id}' WHERE questionid = #{self.id}"
+          sql = "UPDATE studentanswer SET answer='question-#{post.id}-text.value', questionid='#{self.id.value}' WHERE questionid = #{self.id}"
         end
-  
+        
         conn.exec(sql)
+      
   
     end
   
@@ -39,6 +41,7 @@ class Question
           posts
   
     end
+
   
     def self.hydrate post_data
   
@@ -47,7 +50,7 @@ class Question
     
       post.question = post_data['question']
       post.id = post_data['questionid']
-    
+
       post
   
     end

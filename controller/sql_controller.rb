@@ -23,29 +23,53 @@ class SqlController < Sinatra::Base
 
     #student route
     get '/student/login' do
+        @logins = Login.all
         erb :'pages/student_login'
+    end
+    
+    post '/student/login' do
+    
+        login = Login.all
+    
+        # bind the values
+        @email = 'asd'
+        if (@email = 'asd')
+            redirect = "/"
+        end
+       
     end
 
     get '/question/1' do
         @posts = Question.all
+        @answers = Answer.all
+     
         erb :'pages/question_one_page'
     end
 
+
     post '/question/1' do
     
-        post = Post.save
+        answer = Answer.new
     
         # bind the values
-        post.answer ="question-#{post.id}-text".value
-    
+        answer.studentanswer = params[:studentanswer]
+        answer.id = params[:id]    
         # save the post
-        post.save
+        answer.save
+    end
 
-
-    
-      
+    put '/question/1' do
         
-      end
+        id = params[:id].to_i
+        answer = Answer.find id
+        # bind the values
+        answer.studentanswer = params[:studentanswer]
+        answer.id = params[:id]    
+        # save the post
+        answer.save
+        
+    end 
+
 
     get '/question/2' do
         erb :'pages/question_two_page'
