@@ -1,39 +1,53 @@
-# Automated-SQL-Checker
+# Sparta-Project-2 / SQL-Automation-Checker-App
 
-### GitHub
+### Description
+For this project, we have created an automated SQL checker application which automatically compares the answers written by trainees during their SQL assessment against the expected answers stored in a created database. Once trainees have completed their assessments, test results are produced for the trainers in Sparta Global which avoids the chance of human error or ambiguities when marking the assessments manually. The automated application provides an efficient way for trainers to evaluate their streams as a collective as well as individual trainee performance.  
 
-Communicate when uploading. Once one person uploads, the other pulls. Then the next person uploads. We keep this going till we’re all uploaded. This will avoid all merge conflicts period.
+### Technologies used
+* Ruby
+* JavaScript
+* HTML
+* CSS
+* Jira
+* GitHub
+* Microsoft Teams
+* VS Code
+* Google Chrome Dev Tools
 
-### Naming conventions:
+## Frameworks
+* Sinatra
+* Bootstrap
 
-Files
-File names: a_b_c_d_e_f_g.rb
-Partial file names are as follows: _a.rb
+### Prerequisites/Installation
+* Install a text editor such as Visual Studio Code
+* Install the latest version of Ruby  
 
-### Inside Files
+### Configuration
+1. Copy/Clone the URL on GitHub into your own terminal
+2. Unzip the file into a selected directory on own local device
+3. Open the local folder in a selected text editor e.g. Visual Studio Code
+4. Run "rackup" inside the terminal of the text editor
+5. Open a selected web browser and type "localhost:[port-number]" shown in your terminal in the web browser URL e.g. localhost:9292
 
-Variables including function names: this_is_how_we_do_it
-Class names are PasCal: ThisIsHowWeDoIt
+#### You can view the page [https://github.com/ianhawe/Automated-SQL-Checker/.]()
 
-Title all functions with a comment.
+### Challenges (you can include images and code block here)
+1. Connecting with the TAR file
+2. Normalisation of the database tables 
+3. Translating the SQL queries from the student selected SQL language (datatypes)
+4. Calling from the API
+5. Sessions and cookies
+6. Time constraints
 
-### Table naming conventions(DB)
+### Learning points
+1. Better understanding of Ruby/Sinatra and how to apply gems in a full stack application
+2. Understanding the importance of normalisation within database schemas
 
-All lower case for table separated by _
-Field names should be written as follows:
-CourseID
-CourseName
-
-### Branch Naming Conventions
-
-- Branch off the correct branch.
-- i.e. wireframe.
-- create new branch
-- call it : wf_01_what-you-did
-- This breaks down as follows: Wireframe Branch,Version 01, what you've done
-
-### Tech used:
-
-
+### To do
+1. Make it look according to the wireframes
+2. Hosted on Heroku
+3. Refine query check
+4. Cookies and sessions working correctly
 
 ### Created by:
+Eng-21
