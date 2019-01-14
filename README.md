@@ -14,9 +14,9 @@ For this project, we have created an automated SQL checker application which aut
 * VS Code
 * Google Chrome Dev Tools
 
-## Frameworks/Libraries?
-* Sinatra?
-* Bootstrap?
+## Frameworks
+* Sinatra
+* Bootstrap
 
 ### Prerequisites/Installation
 * Install a text editor such as Visual Studio Code
@@ -43,3 +43,11 @@ For this project, we have created an automated SQL checker application which aut
 1. Better understanding of Ruby/Sinatra and how to apply gems in a full stack application
 2. Understanding the importance of normalisation within database schemas
 
+### To do
+1. Make it look according to the wireframes
+2. Hosted on Heroku
+3. Refine query check
+4. Cookies and sessions working correctly
+
+### Created by:
+Eng-21
