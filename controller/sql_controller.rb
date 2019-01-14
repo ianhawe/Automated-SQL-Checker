@@ -56,8 +56,8 @@ class SqlController < Sinatra::Base
         @password = params[:password]
         # bind the values
         @logins.each do |login|
-        redirect "question/1"
             if(@email == login.email and @password == login.password)
+        redirect "question/1"
             
                 
             end
