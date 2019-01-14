@@ -7,6 +7,7 @@ require_relative './models/Question.rb'
 require_relative './models/Answer.rb'
 require_relative './models/Login.rb'
 require_relative './models/Answercheck.rb'
+require_relative './models/Test.rb'
 
 use Rack::Reloader
 

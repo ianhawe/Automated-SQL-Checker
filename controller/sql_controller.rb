@@ -23,21 +23,9 @@ class SqlController < Sinatra::Base
 
     #student route
     get '/student/login' do
-        @logins = Login.all
         erb :'pages/student_login'
     end
     
-    post '/student/login' do
-    
-        login = Login.all
-    
-        # bind the values
-        @email = 'asd'
-        if (@email = 'asd')
-            redirect = "/"
-        end
-       
-    end
 
     get '/question/1' do
         @posts = Question.all
@@ -61,16 +49,25 @@ class SqlController < Sinatra::Base
 
 
     post '/student/login' do
-    
-        logins = Login.new
+       
+        @logins = Login.all
+        @tests = Test.all
         @email = params[:email]
         @password = params[:password]
         # bind the values
         @logins.each do |login|
             if(@email == login.email and @password == login.password)
-                redirect "/question/1"
+            redirect "/question/1"
+                # @tests.each do |test|
+                #     @testnr = test.count
+                #     if (test.id == login.id)
+                #     elsif(test.id.to_i >= test.count)
+                #         test.add
+                #         redirect "/question/1"
+                #     end
+                # end
             end
-            
+
         end
         
         redirect "student/login"
@@ -121,7 +118,7 @@ class SqlController < Sinatra::Base
           @firstname = check.firstname
           @lastname = check.lastname
         end
-        
+
         erb :'pages/score_page'
     end
 
