@@ -57,17 +57,8 @@ class SqlController < Sinatra::Base
         # bind the values
         @logins.each do |login|
             if(@email == login.email and @password == login.password)
-                @tests.each do |test|
-                    @testnr = test.count
-
-                    if (test.id == login.id)
-                        # redirect "/question/1"
-                        
-                    elsif(test.id.to_i >= test.count)
-                        test.add
-                        redirect "/question/1"
-                    end
-                end
+            
+                
             end
 
         end
