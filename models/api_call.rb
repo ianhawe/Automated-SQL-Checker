@@ -1,5 +1,6 @@
 require 'httparty'
 require 'json'
+require 'jwt'
 
 class InternalManagementSystemAPI
   include HTTParty
@@ -16,5 +17,8 @@ class InternalManagementSystemAPI
     @token['success']
   end
 
-end
+  def decode
+    JWT.decode @token['token'], nil, false
+  end
 
+end

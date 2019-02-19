@@ -54,17 +54,14 @@ class SqlController < Sinatra::Base
         @tests = Test.all
         @email = params[:email]
         @password = params[:password]
-        # bind the values
-        @logins.each do |login|
-            if(@email == login.email and @password == login.password)
-        redirect "question/1"
-            
-                
-            end
-
+        test = InternalManagementSystemAPI.new
+        test.retrieve_token(@email, @password)
+        if test.retrieve_success == true
+            redirect "question/1"
+        else
+            redirect "student/login"
         end
-        
-        redirect "student/login"
+
     end
 
     put '/question/1' do
