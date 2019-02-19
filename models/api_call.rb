@@ -47,6 +47,3 @@ class InternalManagementSystemAPI
   end
 
 end
-
-# test = InternalManagementSystemAPI.new
-# p test.retrieve_token("admin@spartaglobal.com", "Password1")
