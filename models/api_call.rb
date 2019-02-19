@@ -22,3 +22,6 @@ class InternalManagementSystemAPI
   end
 
 end
+
+test = InternalManagementSystemAPI.new
+test.retrieve_token('spartaglobal.com', "Password1")
