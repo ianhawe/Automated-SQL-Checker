@@ -1,4 +1,11 @@
-CREATE DATABASE spartaappsql;
+DROP TABLE IF EXISTS course;
+DROP TABLE IF EXISTS student;
+DROP TABLE IF EXISTS trainer;
+DROP TABLE IF EXISTS course_trainer;
+DROP TABLE IF EXISTS test;
+DROP TABLE IF EXISTS question;
+DROP TABLE IF EXISTS student_test;
+DROP TABLE IF EXISTS studentanswer;
 
 CREATE TABLE course (
 CourseID SERIAL PRIMARY KEY,
@@ -13,8 +20,6 @@ StudentID SERIAL PRIMARY KEY,
 CourseID INT REFERENCES Course(CourseID),
 FirstName VARCHAR(20) NOT NULL, 
 LastName VARCHAR(20) NOT NULL, 
-Email VARCHAR(40) UNIQUE NOT NULL,
-Password VARCHAR(40) NOT NULL,
 Completed BOOLEAN DEFAULT FALSE, 
 DBType VARCHAR(20)
 );
@@ -23,8 +28,6 @@ CREATE TABLE trainer (
 TrainerID SERIAL PRIMARY KEY,
 FirstName VARCHAR(20) NOT NULL, 
 LastName VARCHAR(20) NOT NULL, 
-Email VARCHAR(40) UNIQUE NOT NULL,
-Password VARCHAR(40) NOT NULL
 );
 
 CREATE TABLE course_trainer (
@@ -47,7 +50,6 @@ QuestionScore INT,
 TestID INT REFERENCES test(TestID)
 );
 
-
 CREATE TABLE student_test (
 StudentTestID SERIAL PRIMARY KEY,
 TestID INT REFERENCES test(TestID),
@@ -56,12 +58,11 @@ StudentID INT REFERENCES student(StudentID)
 );
 
 
-CREATE TABLE student_answer (
+CREATE TABLE studentanswer (
   QuestionID INT REFERENCES question(QuestionID),
   Answer TEXT,
   StudentTestID INT REFERENCES student_test(StudentTestID)
 );
-
 
 ALTER TABLE student 
 ADD CONSTRAINT CHK_Email CHECK( Email LIKE '%@spartaglobal.com');
@@ -69,52 +70,9 @@ ADD CONSTRAINT CHK_Email CHECK( Email LIKE '%@spartaglobal.com');
 ALTER TABLE trainer 
 ADD CONSTRAINT CHK_Email CHECK( Email LIKE '%@spartaglobal.com');
 
-INSERT INTO course(CourseName, StartDate, EndDate, StreamType) 
-VALUES ('Engineering-21','2018-11-12', '2018-02-28', 'SDET'), 
-  ('Engineering-22','2018-11-26', '2018-03-09', 'DevOps'),
-  ('Business 17','2019-10-10', '2019-08-13', 'PMO')
-  ;
-
-INSERT INTO course(CourseName) VALUES ('Business 10'), ('Engineering-01'), ('BIZ 3');
-
-INSERT INTO student (CourseID, FirstName, LastName, Email, Password)
-VALUES (01, 'Hibah', 'Abid','habid@spartaglobal.com','Acd3my1'),
- (01, 'Kirpal', 'Seehra','kseehra@spartaglobal.com','Acd3my1'),
- (01, 'Emem', 'Umoh','eumoh@spartaglobal.com','Acd3my1'),
- (01, 'Thomas', 'Impey','timpey@spartaglobal.com','Acd3my1'),
- (01, 'Nitesh', 'Vairavan','nvairavan@spartaglobal.com','Acd3my1'),
- (01, 'Shahrukh', 'Khan','skhan@spartaglobal.com','Acd3my1'),
- (01, 'Orhan', 'Mustafa','omustafa@spartaglobal.com','Acd3my1'),
- (01, 'Raiyan', 'Shaheen','rshaheen@spartaglobal.com','Acd3my1'),
- (01, 'Paul', 'Ciobanita','pciobanita@spartaglobal.com','Acd3my1'),
- (01, 'Nisaanth', 'Manegavasar','nmanegavasar@spartaglobal.com','Acd3my1'),
- (01, 'Arnold', 'Chung','achung@spartaglobal.com','Acd3my1'),
- (02, 'Bob', 'Michaels','bmichaels@spartaglobal.com','Acd3my1'),
- (02, 'Steven', 'Lee','slee@spartaglobal.com','password'),
- (02, 'Jessica', 'Simmon','simmons@spartaglobal.com','password47'),
- (05, 'Bob', 'Michaels','bmichaels123@spartaglobal.com','hello123'),
- (04, 'Mollie', 'Impey','mimpey@spartaglobal.com','1234567'),
- (03, 'Anne', 'Lee','annelee@spartaglobal.com','PASSWORD'), 
- (03, 'Jeff', 'Goldblum','goldJ@spartaglobal.com','QWErty'),
- (03, 'Dua', 'Lipa','lipa@spartaglobal.com','PASSWORD123');
-
- INSERT INTO student (CourseID, FirstName, LastName, Email, Password, DBType)
- VALUES
- (04, 'Jim', 'Stevens','jsteven@spartaglobal.com','pacman2013', 'sql'),
- (04, 'Lilly', 'Stephens','lstephen@spartaglobal.com','pacman2013', 'psql'),
- (03, 'Sharon', 'Lee','Slee@spartaglobal.com','hello2123', 'mysql');
-
-INSERT INTO trainer (FirstName, LastName, Email, Password)
-VALUES
- ('Dave', 'Collins','trainer1@spartaglobal.com','Admin'),
- ('Gary', 'Collins','gary@spartaglobal.com','Admin'),
- ('Meryl', 'Streep','MerylStreep@spartaglobal.com','prada'),
- ('Artur', 'Kondas', 'akondas@spartaglobal.com', 'ducks');
-
 INSERT INTO course_trainer (TrainerID, CourseID) VALUES (01, 04), (02,03), (04,01);
 
 INSERT INTO test (TotalScore) VALUES  (50);
-
 
 INSERT INTO question (Question, QuestionType, CorrectAnswer, QuestionScore, TestID)
 VALUES
