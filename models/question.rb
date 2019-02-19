@@ -29,7 +29,7 @@ class Question
   
           conn = self.open_connection
   
-          sql = "SELECT * FROM question"
+          sql = "SELECT * FROM question WHERE QuestionType = 'Beginner'"
           results = conn.exec(sql)
   
           # create an array of post objects
