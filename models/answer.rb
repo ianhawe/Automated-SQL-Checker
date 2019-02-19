@@ -52,4 +52,12 @@ class Answer
 
   end
 
+  def check
+    words_str = 'INSERT INTO VALUES UPDATE SET WHERE SELECT FROM'
+    words_arr = words_str.split(' ')
+    p words_arr   # ["Foo" "Bar" "Baz"]
+    puts words_arr [0...4]
+
+  end 
+
 end
