@@ -45,7 +45,7 @@ class SqlController < Sinatra::Base
         answer.id = params[:id].to_i
         # save the post
         answer.save
-        redirect "/question/1"
+        redirect '/question/1'
     end
 
 
