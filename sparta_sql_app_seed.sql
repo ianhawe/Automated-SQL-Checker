@@ -1,11 +1,11 @@
-DROP TABLE IF EXISTS course;
-DROP TABLE IF EXISTS student;
-DROP TABLE IF EXISTS trainer;
-DROP TABLE IF EXISTS course_trainer;
-DROP TABLE IF EXISTS test;
-DROP TABLE IF EXISTS question;
-DROP TABLE IF EXISTS student_test;
-DROP TABLE IF EXISTS studentanswer;
+DROP TABLE IF EXISTS course CASCADE;
+DROP TABLE IF EXISTS student CASCADE;
+DROP TABLE IF EXISTS trainer CASCADE;
+DROP TABLE IF EXISTS course_trainer CASCADE;
+DROP TABLE IF EXISTS test CASCADE;
+DROP TABLE IF EXISTS question CASCADE;
+DROP TABLE IF EXISTS student_test CASCADE;
+DROP TABLE IF EXISTS studentanswer CASCADE;
 
 CREATE TABLE course (
 CourseID SERIAL PRIMARY KEY,
@@ -27,7 +27,7 @@ DBType VARCHAR(20)
 CREATE TABLE trainer (
 TrainerID SERIAL PRIMARY KEY,
 FirstName VARCHAR(20) NOT NULL, 
-LastName VARCHAR(20) NOT NULL, 
+LastName VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE course_trainer (
@@ -57,20 +57,11 @@ ScoreAchieved INT,
 StudentID INT REFERENCES student(StudentID)
 );
 
-
 CREATE TABLE studentanswer (
   QuestionID INT REFERENCES question(QuestionID),
   Answer TEXT,
   StudentTestID INT REFERENCES student_test(StudentTestID)
 );
-
-ALTER TABLE student 
-ADD CONSTRAINT CHK_Email CHECK( Email LIKE '%@spartaglobal.com');
-
-ALTER TABLE trainer 
-ADD CONSTRAINT CHK_Email CHECK( Email LIKE '%@spartaglobal.com');
-
-INSERT INTO course_trainer (TrainerID, CourseID) VALUES (01, 04), (02,03), (04,01);
 
 INSERT INTO test (TotalScore) VALUES  (50);
 
