@@ -1,6 +1,6 @@
-class User
+class Course
 
-  attr_accessor :userid, :firstname, :lastname, :rolename, :cohortname, :specialisationname
+  attr_accessor :courseid, :coursename
 
 
   def self.open_connection
@@ -13,7 +13,7 @@ class User
 
         conn = self.open_connection
 
-        sql = "SELECT * FROM student"
+        sql = "SELECT * FROM course"
         results = conn.exec(sql)
 
         # create an array of post objects
@@ -26,8 +26,6 @@ class User
   end
 
   def self.hydrate post_data
-
-    user = User.new
 
   end
 
