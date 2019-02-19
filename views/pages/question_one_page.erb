@@ -23,7 +23,30 @@
 
     <div class="row">
         <div class="col-lg-2"></div>
-        <div class="col-lg-8"><h1>Questions</h1></div>
+        <div class="col-lg-8"><% @posts.each do |post| %>
+
+        <div class="row question<%= post.id %>">
+            <label for="Qid"><%= post.id %></label>
+            <input type = "hidden" name = "Qid" value =<%= post.id%>>
+        </div>
+        <form method = "POST" action="/question/1">
+            <div class="form-group">
+                <label for="id"></label>
+                <input type = "hidden" name = "id" value =<%= post.id%>>
+                <label for="question" class="flaggedQ"><%= post.question%></label> 
+                <label for="studentanswer"></label>
+                <textarea name= "studentanswer" class="form-control" id="question-<%= post.id %>-text" rows="3"><% @answers.each do |answer| %><% if(post.id == answer.id) %><%= answer.studentanswer%><% end %><% end %></textarea>
+                <input type="submit" value="Submit">
+                            
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-1">
+                    <button type="button" class="btn btn-light q1flag"><i class="fa fa-flag"> </i></button>
+                </div>
+            </div>
+        </div>
+
         <div class="col-lg-2"></div>
     </div>
 

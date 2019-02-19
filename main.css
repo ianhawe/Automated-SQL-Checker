@@ -36,14 +36,14 @@
 }
 
 .empty-side-right {
-float: right;
-padding-bottom: 20px;
+    float: right;
+    padding-bottom: 20px;
 }
 
 .submit {
-margin-left: 110px;
-padding-left: 56px;
-padding-right: 56px;
+    margin-left: 110px;
+    padding-left: 56px;
+    padding-right: 56px;
 }
 
 .backBtn {
@@ -52,5 +52,5 @@ padding-right: 56px;
 }
 
 .empty-side-left {
-margin-top: 910px
+    margin-top: 910px
 }
