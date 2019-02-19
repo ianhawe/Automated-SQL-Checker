@@ -39,7 +39,6 @@ class SqlController < Sinatra::Base
     post '/question/1' do
     
         answer = Answer.new
-    
         # bind the values
         answer.studentanswer = params[:studentanswer]
         answer.id = params[:id].to_i
@@ -51,7 +50,7 @@ class SqlController < Sinatra::Base
 
     post '/student/login' do
        
-        @logins = Login.all
+        @user = User.new
         @tests = Test.all
         @email = params[:email]
         @password = params[:password]
@@ -59,6 +58,10 @@ class SqlController < Sinatra::Base
         @api.retrieve_token(@email, @password)
         if @api.retrieve_success == true
             session[:userid] = "#{@api.retrieve_user_id}"
+            @user.rolename = @api.retrieve_role_name
+            @user.firstname = @api.retrieve_first_name
+            @user.lastname = @api.retrieve_last_name
+            @user.save
             redirect "question/1"
         else
             redirect "student/login"

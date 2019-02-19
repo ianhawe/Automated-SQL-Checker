@@ -16,12 +16,11 @@ class Question
         end
         
         conn.exec(sql)
-      
-  
+
     end
-  
+
     def self.open_connection
-  
+
         conn = PG.connect( dbname: "spartaappsql" )
   
     end
