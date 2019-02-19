@@ -28,6 +28,7 @@ class SqlController < Sinatra::Base
     
 
     get '/question/1' do
+        @userid = session[:userid]
         @posts = Question.all
         @answers = Answer.all
      
@@ -54,9 +55,10 @@ class SqlController < Sinatra::Base
         @tests = Test.all
         @email = params[:email]
         @password = params[:password]
-        test = InternalManagementSystemAPI.new
-        test.retrieve_token(@email, @password)
-        if test.retrieve_success == true
+        @api = InternalManagementSystemAPI.new
+        @api.retrieve_token(@email, @password)
+        if @api.retrieve_success == true
+            session[:userid] = "#{@api.retrieve_user_id}"
             redirect "question/1"
         else
             redirect "student/login"
@@ -65,7 +67,6 @@ class SqlController < Sinatra::Base
     end
 
     put '/question/1' do
-        
         id = params[:id].to_i
         answer = Answer.find id
         # bind the values
