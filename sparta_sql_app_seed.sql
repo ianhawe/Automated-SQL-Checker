@@ -17,16 +17,14 @@ CASCADE;
 
 CREATE TABLE course
 (
-  CourseID SERIAL PRIMARY KEY,
+  CourseID INT PRIMARY KEY,
   CourseName VARCHAR(40) UNIQUE,
-  StartDate DATE,
-  EndDate DATE,
   StreamType VARCHAR(40)
 );
 
 CREATE TABLE student
 (
-  StudentID SERIAL PRIMARY KEY,
+  StudentID INT PRIMARY KEY,
   CourseID INT REFERENCES Course(CourseID),
   FirstName VARCHAR(20) NOT NULL,
   LastName VARCHAR(20) NOT NULL,
@@ -36,7 +34,7 @@ CREATE TABLE student
 
 CREATE TABLE trainer
 (
-  TrainerID SERIAL PRIMARY KEY,
+  TrainerID INT PRIMARY KEY,
   FirstName VARCHAR(20) NOT NULL,
   LastName VARCHAR(20) NOT NULL
 );
