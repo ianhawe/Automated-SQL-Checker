@@ -1,6 +1,6 @@
 class User
 
-  attr_accessor :userid, :firstname, :lastname, :rolename, :cohortname, :specialisationname
+  attr_accessor :userid, :firstname, :lastname, :rolename, :cohortname, :cohortid
 
 
   def self.open_connection
@@ -17,11 +17,11 @@ class User
         results = conn.exec(sql)
 
         # create an array of post objects
-        logins = results.map do |tuple| 
+        users = results.map do |tuple| 
             self.hydrate tuple
         end
 
-        logins
+        users
 
   end
 
@@ -34,7 +34,7 @@ class User
   def save
     conn = PG.connect( dbname: "spartaappsql" )
     if self.rolename == 'Trainee'
-      sql = "INSERT INTO student(courseid, firstname , lastname) VALUES (1, '#{self.firstname}','#{self.lastname}')"
+      sql = "INSERT INTO student(studentid, courseid, firstname , lastname) VALUES (#{self.userid}, #{self.cohortid}, '#{self.firstname}','#{self.lastname}')"
       results = conn.exec(sql)
     end
   end

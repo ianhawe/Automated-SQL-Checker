@@ -42,4 +42,8 @@ class InternalManagementSystemAPI
     decode[0]['specialisation_name']
   end
 
+  def retrieve_cohort_id
+    decode[0]['cohort_id']
+  end
+
 end

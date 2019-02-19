@@ -51,16 +51,22 @@ class SqlController < Sinatra::Base
     post '/student/login' do
        
         @user = User.new
-        @tests = Test.all
+        @course = Course.new
         @email = params[:email]
         @password = params[:password]
         @api = InternalManagementSystemAPI.new
         @api.retrieve_token(@email, @password)
+        @course.courseid = @api.retrieve_cohort_id
+        @course.coursename = @api.retrieve_cohort_name
+        @user.userid = @api.retrieve_user_id
+        @user.cohortid = @api.retrieve_cohort_id
+        @user.rolename = @api.retrieve_role_name
+        @user.firstname = @api.retrieve_first_name
+        @user.lastname = @api.retrieve_last_name
+        
         if @api.retrieve_success == true
             session[:userid] = "#{@api.retrieve_user_id}"
-            @user.rolename = @api.retrieve_role_name
-            @user.firstname = @api.retrieve_first_name
-            @user.lastname = @api.retrieve_last_name
+            @course.save
             @user.save
             redirect "question/1"
         else

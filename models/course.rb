@@ -17,11 +17,11 @@ class Course
         results = conn.exec(sql)
 
         # create an array of post objects
-        logins = results.map do |tuple| 
+        course = results.map do |tuple| 
             self.hydrate tuple
         end
 
-        logins
+        course
 
   end
 
@@ -31,10 +31,8 @@ class Course
 
   def save
     conn = PG.connect( dbname: "spartaappsql" )
-    if self.rolename == 'Trainee'
-      sql = "INSERT INTO student(courseid, firstname , lastname) VALUES (1, '#{self.firstname}','#{self.lastname}')"
+      sql = "INSERT INTO course(courseid, coursename , streamtype) VALUES (#{self.courseid}, '#{self.coursename}', 'BA')"
       results = conn.exec(sql)
-    end
   end
 
 end
