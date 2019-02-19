@@ -21,4 +21,8 @@ class InternalManagementSystemAPI
     JWT.decode @token['token'], nil, false
   end
 
+  def retrieve_user_id
+    decode[0]['user_id']
+  end
+
 end
