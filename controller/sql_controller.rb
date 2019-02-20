@@ -96,7 +96,6 @@ class SqlController < Sinatra::Base
 		answer.save
 	end 
 
-
 	get '/question/2' do
 		if session[:userid] == nil
 			redirect "student/login"
