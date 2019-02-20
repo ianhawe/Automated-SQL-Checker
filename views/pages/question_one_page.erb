@@ -16,80 +16,56 @@
 <body>
     
     <div class="row">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-8"><h1>Questions</h1></div>
-        <div class="col-lg-2"></div>
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6"><h1>Questions</h1></div>
+        <div class="col-lg-3"><a href="/"><button type="button" class="btn btn-danger">Logout</button></a></div>
     </div>
-    
+    <br>
     <div class="container">
-    
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12"></div>
+        <% @posts.each do |post| %>
+        <div class="row question-<%= post.id %>"></div>
+        <div class="row">
+            <div class="col-lg-1 text-right">
+                <label for="Qid"><%= post.id %></label>
             </div>
-            <div class="row">
-                <div class="col-lg-1 empty-side-left">
-
-                </div>
-                <div class="col-lg-10 center">
-
-                 <% @posts.each do |post| %>
-                 
-                    <div class="row question-<%= post.id %>">
-                        <div class="col-lg-2">
-                             <label for="Qid"><%= post.id %></label>
-                             <input type = "hidden" name = "Qid" value =<%= post.id%>>
-                        </div>
-                        <div class="col-lg-8">
-
-
-                            <form method = "POST" action="/question/1">
-                                <div class="form-group">
-                                    <label for="id"></label>
-                                    <input type = "hidden" name = "id" value =<%= post.id%>>
-                                    <label for="question" class="flaggedQ"><%= post.question%></label> 
-                                    <label for="studentanswer"></label>
-                                    <textarea name= "studentanswer" class="form-control" id="question-<%= post.id %>-text" rows="3"><% @answers.each do |answer| %><% if(post.id == answer.id) %><%= answer.studentanswer%><% end %><% end %></textarea>
-                                    <input type="submit" value="Submit">
-                                    
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-lg-1">
-                            <button type="button" class="btn btn-light q1flag"><i class="fa fa-flag"> </i></button>
-                        </div>
-                    </div>
-
-                    <% end %>
-                
-                        <div class="col-lg-1">
-                            
-                            <button type="button" class="btn btn-light q1flag"><i class="fa fa-flag"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 empty-side-right">
-
-                    </div>
-
-                </div>
+            <div class="col-lg-10">
+                <input type="hidden" name="Qid" value=<%=post.id%>>
+                <form method="POST" action="/question/1">
+                    <label for="id"></label>
+                    <input type="hidden" name="id" value=<%=post.id%>>
+                    <label for="question" class="flaggedQ"><%= post.question%></label>
+                    <label for="studentanswer"></label>
+                    <textarea name="studentanswer" class="form-control" id="question-<%= post.id %>-text" rows="3">
+                        <% @answers.each do |answer| %>
+                        <% if(post.id == answer.id) %>
+                        <%= answer.studentanswer%>
+                        <% end %>
+                        <% end %>
+                    </textarea>
+                    <input type="submit" value="save">
+                </form>
+                <br>
+                <br>
+            </div>
+            <div class="col-lg-1">
             </div>
         </div>
+        <% end %>
+    </div>
 
-
-    <nav>
+    <div class="container">
         <div class="row text-center">
             <div class="col-lg-2">
-                <a href='/student/login'><button type="button" class="btn btn-primary">Back</button></a>
             </div>
             <div class="col-lg-8">
                 <a href='/info'><button type="button" class="btn btn-info">Info</button></a>
             </div>
             <div class="col-lg-2">
-                <a href='/question/2'> <button type="button" class="btn btn-primary">Next</button></a>
+                <a href='/student/score'> <button type="button" class="btn btn-primary">Submit</button></a>
             </div>
         </div>
-    </nav>
+        <br>
+    </div>
 
 </body>
 
