@@ -26,14 +26,12 @@ class SqlController < Sinatra::Base
 		erb :'pages/student_login'
 	end
 
-
 	get '/question/1' do
 		@userid = session[:userid]
 		@posts = Question.all
 		@answers = Answer.all
 		erb :'pages/question_one_page'
 	end
-
 
 	post '/question/1' do
 		answer = Answer.new
@@ -44,7 +42,6 @@ class SqlController < Sinatra::Base
 		answer.save
 		redirect '/question/1'
 	end
-
 
 	post '/student/login' do 
 		@user = User.new
