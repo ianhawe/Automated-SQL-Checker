@@ -26,17 +26,20 @@ class SqlController < Sinatra::Base
 	get '/question/1' do
 		@userid = session[:userid]
 		@posts = Question.all
-		@answers = Answer.all
+		@answers = Answer.new
+		@answers.studenttestid = session[:testid]
+		@studentanswers = @answers.all
 		erb :'pages/question_one_page'
 	end
 
 	post '/question/1' do
-		answer = Answer.new
+		answer = Test.new
 		# bind the values
 		answer.studentanswer = params[:studentanswer]
-		answer.id = params[:id].to_i
+		answer.questionid = params[:id].to_i
+		answer.studenttestid = session[:testid]
 		# save the post
-		answer.save
+		answer.save_answers
 		redirect '/question/1'
 	end
 
@@ -62,6 +65,7 @@ class SqlController < Sinatra::Base
 			@course.save
 			@user.save
 			@test.add_test
+			session[:testid] = @test.find_test[0]['studenttestid'].to_i
 			redirect "question/1"
 		else
 			redirect "student/login"
