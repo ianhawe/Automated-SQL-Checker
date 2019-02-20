@@ -1,69 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-    crossorigin="anonymous">
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-<title>Student Login</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" media="screen" href="<%= url('/main.css')%>" />
-
-<script src="main.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Student Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="<%= url('/main.css')%>" />
+    
+    <script src="main.js"></script>
 </head>
 
 <body>
-
-<div>
-
-    <div class="login">
-
-      <div class="row">
-
-        <div class="col-lg-4">
-        </div>
-
-        <div class="col-lg-4">
-          <div>
-            <h1 class="sql-header">Student Login</h1>
-
-            
-              <div class="form-group">
-            <form method = "POST" action="/student/login">
-                <label for="email"><%= @testnr%></label>
-                <input type="text" name="email" class="form-control" id="" aria-describedby="firstName" placeholder="email adress">
-              </div>
-              <div class="form-group">
-                <label for="password">password</label>
-                <input type="password" name="password" class="form-control" id="" aria-describedby="lastName" placeholder="Last Name">
-
-              <a href="/">
-            
-                <button type="button" class="btn btn-primary">Back</button>
-              </a>
-              <input type="submit" class="btn btn-primary" value="Submit">
-              </div>
-            </form>
-        
-           
-            
-
-            
-          
-
-
-
-          </div>
-        </div>
-
-
-        <div class="col-lg-4"></div>
+  
+  <div>
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4"><h1 class="sql-header">Student Login</h1></div>
+      <div class="col-lg-4"></div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4 form-group">
+        <form method = "POST" action="/student/login">
+          <input type="text" name="email" class="form-control" id="" aria-describedby="firstName" placeholder="Email or username">
+          <input type="password" name="password" class="form-control" id="" aria-describedby="lastName" placeholder="Password">
       </div>
-      <div class="row">
-      </div>
+      <div class="col-lg-4"></div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+        <a href="/"><button type="button" class="btn btn-primary">Back</button></a>
+        <input type="submit" class="btn btn-primary" value="Submit"></div>
+        </form>
+      <div class="col-lg-4"></div>
     </div>
   </div>
-
-
+  
 </body>
 
+</html>
