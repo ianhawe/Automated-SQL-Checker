@@ -13,7 +13,7 @@ class SqlController < Sinatra::Base
 
     #index
     get '/' do
-        erb :'pages/index'
+				erb :'pages/index'
     end
 
     #info
@@ -27,7 +27,10 @@ class SqlController < Sinatra::Base
     end
     
 
-    get '/question/1' do
+		get '/question/1' do
+			if session[:userid] == nil
+				redirect "student/login"
+			end
         @userid = session[:userid]
         @posts = Question.all
         @answers = Answer.all
@@ -49,16 +52,18 @@ class SqlController < Sinatra::Base
     end
 
 
-    post '/student/login' do
+		post '/student/login' do
+			
        
         @logins = Login.all
         @tests = Test.all
         @email = params[:email]
         @password = params[:password]
         @api = InternalManagementSystemAPI.new
-        @api.retrieve_token(@email, @password)
+				@api.retrieve_token(@email, @password)
+				@user_id = @api.retrieve_user_id 
         if @api.retrieve_success == true
-            session[:userid] = "#{@api.retrieve_user_id}"
+						session[:userid] = "#{@api.retrieve_user_id}"
             redirect "question/1"
         else
             redirect "student/login"
@@ -77,34 +82,45 @@ class SqlController < Sinatra::Base
     end 
 
 
-    get '/question/2' do
-        erb :'pages/question_two_page'
+		get '/question/2' do
+			if session[:userid] == nil
+				redirect "student/login"
+			end
+			erb :'pages/question_two_page'
     end
 
-    get '/question/3' do
+		get '/question/3' do
+			if session[:userid] == nil
+				redirect "student/login"
+			end
         erb :'pages/question_three_page'
     end
 
-    get '/student/review' do
+		get '/student/review' do
+			if session[:userid] == nil
+				redirect "student/login"
+			end
         erb :'pages/review_questions'
     end
 
-    get '/student/score' do
+		get '/student/score' do
+			if session[:userid] == nil
+				redirect "student/login"
+			end
        
-        @score = 0;
-        @countcorrect = 0;
+        @score = 0
+        @countcorrect = 0
         @checks = Checkanswer.all
         @checks.each do |check|
             @givescore = check.questionscore.to_i
             correctanswer = check.correctanswer
             givenanswer = check.studentanswer
-            correctanswer_str = correctanswer.split(' ').sort
-            givenanswer_str = givenanswer.split(' ').sort
-            if (correctanswer_str.length === givenanswer_str.length)
-                
-                if(correctanswer_str === givenanswer_str)
+            correctanswer_str = correctanswer.split(' ')
+						givenanswer_str = givenanswer.split(' ')
+						if correctanswer_str.length == givenanswer_str.length
+                if correctanswer_str == givenanswer_str
                     @score = @givescore + @score
-                    @countcorrect = @countcorrect + 1;
+                    @countcorrect += 1
                 end
             end
           @firstname = check.firstname
