@@ -46,43 +46,31 @@ class Test
   end
 
   def self.all
-
     conn = self.open_connection
-
     sql = "SELECT * FROM student_test"
     results = conn.exec(sql)
-
     # create an array of post objects
     tests = results.map do |tuple| 
         self.hydrate tuple
     end
-
     tests
-
   end
 
   def find
     conn = self.open_connection
-
     sql = "SELECT * FROM student_test WHERE id = #{self.id} LIMIT 1"
-
     # PG always returns an array
     tests = conn.exec(sql)
-
     # bind just the first and return
     test = self.hydrate answers[0]
-
     test
   end
   
   def hydrate post_data
-
     test = Test.new
     test.studenttestid = post_data['studenttestid']
     test.studentid = post_data['studentid']
-  
     test
-
   end
 
 end
