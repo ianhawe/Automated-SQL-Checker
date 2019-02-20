@@ -20,10 +20,23 @@ class SqlController < Sinatra::Base
 
 	#student route
 	get '/student/login' do
+		if session[:userid] == nil
+			erb :'pages/student_login'
+		else
+			redirect "/question/1"
+		end
 		erb :'pages/student_login'
 	end
 
+	delete "/" do
+		session[:userid] = nil
+		redirect '/student/login'
+  end
+
 	get '/question/1' do
+		if session[:userid] == nil
+			redirect "student/login"
+		end
 		@userid = session[:userid]
 		@posts = Question.all
 		@answers = Answer.new
@@ -59,7 +72,7 @@ class SqlController < Sinatra::Base
 		@user.firstname = @api.retrieve_first_name
 		@user.lastname = @api.retrieve_last_name
 		@test.studentid = @api.retrieve_user_id
-	if @api.retrieve_success == true && @api.retrieve_role_name == "Trainee"
+	  if @api.retrieve_success == true && @api.retrieve_role_name == "Trainee"
 			session[:userid] = "#{@api.retrieve_user_id}"
 			@course.save
 			@user.save
@@ -82,8 +95,10 @@ class SqlController < Sinatra::Base
 		answer.save
 	end 
 
-
 	get '/question/2' do
+		if session[:userid] == nil
+			redirect "student/login"
+		end
 		erb :'pages/question_two_page'
 	end
 
@@ -92,11 +107,21 @@ class SqlController < Sinatra::Base
 	end
 
 	get '/student/review' do
+		if session[:userid] == nil
+			redirect "student/login"
+		end
 		erb :'pages/review_questions'
 	end
 
 	get '/student/score' do
+<<<<<<< HEAD
 		@totalscore = 0;
+=======
+		if session[:userid] == nil
+			redirect "student/login"
+		end
+		@score = 0;
+>>>>>>> dev2
 		@countcorrect = 0;
 		@countincorrect = 0;
 		@score = Checkanswer.new
