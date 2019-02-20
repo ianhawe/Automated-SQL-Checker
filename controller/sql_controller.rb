@@ -73,7 +73,7 @@ class SqlController < Sinatra::Base
 		@user.lastname = @api.retrieve_last_name
 		@test.studentid = @api.retrieve_user_id
 
-	if @api.retrieve_success == true && @api.retrieve_role_name == "Trainee"
+	  if @api.retrieve_success == true && @api.retrieve_role_name == "Trainee"
 			session[:userid] = "#{@api.retrieve_user_id}"
 			@course.save
 			@user.save
