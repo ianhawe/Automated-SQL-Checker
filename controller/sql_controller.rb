@@ -22,8 +22,13 @@ class SqlController < Sinatra::Base
     end
 
     #student route
-    get '/student/login' do
-        erb :'pages/student_login'
+		get '/student/login' do
+			if session[:userid] == nil
+				erb :'pages/student_login'
+			else
+				redirect "/question/1"
+			end
+			erb :'pages/student_login'
     end
     
 
@@ -115,8 +120,8 @@ class SqlController < Sinatra::Base
             @givescore = check.questionscore.to_i
             correctanswer = check.correctanswer
             givenanswer = check.studentanswer
-            correctanswer_str = correctanswer.split(' ')
-						givenanswer_str = givenanswer.split(' ')
+            correctanswer_str = correctanswer.split(' ').sort
+						givenanswer_str = givenanswer.split(' ').sort
 						if correctanswer_str.length == givenanswer_str.length
                 if correctanswer_str == givenanswer_str
                     @score = @givescore + @score
@@ -128,7 +133,7 @@ class SqlController < Sinatra::Base
         end
 
         erb :'pages/score_page'
-    end
+		end
 
     #admin route
     get '/admin/login' do
