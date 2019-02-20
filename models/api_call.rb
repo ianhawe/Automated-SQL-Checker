@@ -47,7 +47,3 @@ class InternalManagementSystemAPI
   end
 
 end
-
-test = InternalManagementSystemAPI.new
-p test.retrieve_token("moe@spartaglobal.com", "Password1")
-p test.retrieve_cohort_id
