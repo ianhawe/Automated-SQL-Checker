@@ -52,6 +52,7 @@ class SqlController < Sinatra::Base
        
         @user = User.new
         @course = Course.new
+        @test = Test.new
         @email = params[:email]
         @password = params[:password]
         @api = InternalManagementSystemAPI.new
@@ -63,11 +64,13 @@ class SqlController < Sinatra::Base
         @user.rolename = @api.retrieve_role_name
         @user.firstname = @api.retrieve_first_name
         @user.lastname = @api.retrieve_last_name
+        @test.studentid = @api.retrieve_user_id
         
         if @api.retrieve_success == true
             session[:userid] = "#{@api.retrieve_user_id}"
             @course.save
             @user.save
+            @test.add_test
             redirect "question/1"
         else
             redirect "student/login"

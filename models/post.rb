@@ -64,8 +64,6 @@ class Post
     
       post.title = post_data['question']
       post.id = post_data['questionid']
-    #   post.body = post_data['body']
-  
       post
   
     end
