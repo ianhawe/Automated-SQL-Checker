@@ -19,7 +19,10 @@
         <div class="col-lg-2"></div>
         <div class="col-lg-8"></div>
         <div class="col-lg-2">
-            <a href="/"><button type="button" class="btn btn-danger">Logout</button></a></div>
+      <form class="d-none" id="log-out" action="/" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" name="" value="Log Out">
+      </form>
     </div>
 
     <div class="row score_page-result_row">

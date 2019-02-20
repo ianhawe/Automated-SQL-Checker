@@ -28,6 +28,11 @@ class SqlController < Sinatra::Base
 		erb :'pages/student_login'
 	end
 
+	delete "/" do
+		session[:userid] = nil
+		redirect '/student/login'
+  end
+
 	get '/question/1' do
 		if session[:userid] == nil
 			redirect "student/login"

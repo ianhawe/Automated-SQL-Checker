@@ -18,7 +18,12 @@
     <div class="row">
         <div class="col-lg-3"></div>
         <div class="col-lg-6"><h1>Questions</h1></div>
-        <div class="col-lg-3"><a href="/"><button type="button" class="btn btn-danger">Logout</button></a></div>
+        <div class="col-lg-3"><a href="/">          <form class="d-none" id="log-out" action="/" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" name="" value="Log Out">
+      </form>
+        <button class="btn btn-secondary btn-md" type="submit" name="button" form="log-out">Log Out</button></a></div>
+        
     </div>
     <br>
     <div class="container">
