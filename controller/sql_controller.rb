@@ -59,7 +59,6 @@ class SqlController < Sinatra::Base
 		@user.firstname = @api.retrieve_first_name
 		@user.lastname = @api.retrieve_last_name
 		@test.studentid = @api.retrieve_user_id
-
 	if @api.retrieve_success == true && @api.retrieve_role_name == "Trainee"
 			session[:userid] = "#{@api.retrieve_user_id}"
 			@course.save
@@ -78,7 +77,7 @@ class SqlController < Sinatra::Base
 		answer = Answer.find id
 		# bind the values
 		answer.studentanswer = params[:studentanswer]
-		answer.id = params[:id]    
+		answer.id = params[:id]
 		# save the post
 		answer.save
 	end 
@@ -103,6 +102,7 @@ class SqlController < Sinatra::Base
 		@score = Checkanswer.new
 		@score.studenttestid = session[:testid]
 		@checks = @score.all
+		@posiblescore = @score.get_all_questions
 		@checks.each do |check|
 		@givescore = check.questionscore.to_i
 		correctanswer = check.correctanswer
@@ -110,14 +110,23 @@ class SqlController < Sinatra::Base
 		correctanswer_str = correctanswer.split(' ').sort
 		givenanswer_str = givenanswer.split(' ').sort
 			if (correctanswer_str.length === givenanswer_str.length) && (correctanswer_str === givenanswer_str)
-				
 						@totalscore += @givescore
-					p	@countcorrect = @countcorrect + 1;
+						@countcorrect = @countcorrect + 1;
 				
 			else(correctanswer_str != givenanswer_str)
-					p	@countincorrect += 1;
+						@countincorrect += 1;
 			end
-		
+		@posiblescore.each do |score|
+			@questions = score.countquestion.to_i
+			@maxscore = score.maxscore.to_i
+		end
+		@unanswered = @questions - @countincorrect - @countcorrect
+		@finalscore =  ((@totalscore / @maxscore.to_f) * 100).round(1)
+		if @finalscore >= 60
+			@feedback = "PASS"
+		else
+			@feedback = "FAIL"
+		end
 		@firstname = check.firstname
 		@lastname = check.lastname
 		end

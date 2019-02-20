@@ -85,13 +85,13 @@
                 <p><b>Unanswered</b></p>
             </div>
             <div class="col-lg-2 score_page-result_grey">
-                <p>1</p>
+                <p><%= @unanswered%></p>
             </div>
             <div class="col-lg-2 score_page-result_grey">
                 <p><b>Score Achieved</b></p>
             </div>
             <div class="col-lg-2 score_page-result_grey">
-                <p>65 %</p>
+                <p><%= @finalscore%>%</p>
             </div>
             <div class="col-lg-2">
             </div>
@@ -123,7 +123,7 @@
         <div class="col-lg-2">
         </div>
         <div class="col-lg-8 score_page-result_grey_box">
-            <h3>Result:</h3> <p>PASS</p>
+            <h3>Result:</h3> <p><%= @feedback%></p>
         </div>
         <div class="col-lg-2">
         </div>

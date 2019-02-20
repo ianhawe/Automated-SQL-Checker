@@ -2,7 +2,7 @@
   require 'pg'
   class Checkanswer
 
-    attr_accessor :studentid, :questionid, :correctanswer, :studentanswer, :studenttestid, :questionscore, :scoreachieved, :firstname, :lastname, :studenttestid
+    attr_accessor :studentid, :questionid, :correctanswer, :studentanswer, :studenttestid, :questionscore, :scoreachieved, :firstname, :lastname, :studenttestid, :countquestion, :maxscore
   
     def save
       conn = Checkanswer.open_connection
@@ -31,6 +31,16 @@
       end
       checks
     end
+
+     def get_all_questions 
+      conn = Checkanswer.open_connection
+      sql = 'SELECT count(question) AS "Count", sum(questionscore) AS "SUM" from question;'
+      results = conn.exec(sql)
+      check = results.map do |tuple|
+        self.hydrate tuple
+      end
+      check
+    end
   
     def find
       conn = Checkanswer.open_connection
@@ -53,7 +63,10 @@
       check.scoreachieved = post_data['scoreachieved']
       check.firstname = post_data['firstname']
       check.lastname = post_data['lastname']
+      check.maxscore = post_data['SUM']
+      check.countquestion = post_data['Count']
       check  
     end
     
   end
+  
