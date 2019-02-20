@@ -5,12 +5,12 @@ class Question
     def save
         conn = Question.open_connection
         if("question-#{post.id}-text") 
-          # Insert a new record in to the database
-          sql = "INSERT INTO studentanswer (questionid , answer) VALUES ( post.id, '#{self.id.value}')"
-         hello = self.id.value
+            # Insert a new record in to the database
+            sql = "INSERT INTO studentanswer (questionid , answer) VALUES ( post.id, '#{self.id.value}')"
+            hello = self.id.value
         else 
-          # Update an existing one
-          sql = "UPDATE studentanswer SET answer='question-#{post.id}-text.value', questionid='#{self.id.value}' WHERE questionid = #{self.id}"
+            # Update an existing one
+            sql = "UPDATE studentanswer SET answer='question-#{post.id}-text.value', questionid=#{self.id.value} WHERE questionid = #{self.id}"
         end
         conn.exec(sql)
     end

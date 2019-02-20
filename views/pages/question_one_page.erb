@@ -35,13 +35,7 @@
                     <input type="hidden" name="id" value=<%=post.id%>>
                     <label for="question" class="flaggedQ"><%= post.question%></label>
                     <label for="studentanswer"></label>
-                    <textarea name="studentanswer" class="form-control" id="question-<%= post.id %>-text" rows="3">
-                        <% @answers.each do |answer| %>
-                        <% if(post.id == answer.id) %>
-                        <%= answer.studentanswer%>
-                        <% end %>
-                        <% end %>
-                    </textarea>
+                    <textarea name="studentanswer" class="form-control" id="question-<%= post.id %>-text" rows="3"><% @studentanswers.each do |answer| %><% if(post.id == answer.id) %><%= answer.studentanswer%><% end %><% end %></textarea>
                     <input type="submit" value="save">
                 </form>
                 <br>
