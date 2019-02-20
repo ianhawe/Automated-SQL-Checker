@@ -32,7 +32,7 @@ class SqlController < Sinatra::Base
         @posts = Question.all
         @answers = Answer.all
      
-        erb :'pages/question_one_page'
+        erb :'pages/placeholder'
     end
 
 
