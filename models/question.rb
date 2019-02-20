@@ -10,7 +10,7 @@ class Question
             hello = self.id.value
         else 
             # Update an existing one
-            sql = "UPDATE studentanswer SET answer='question-#{post.id}-text.value', questionid='#{self.id.value}' WHERE questionid = #{self.id}"
+            sql = "UPDATE studentanswer SET answer='question-#{post.id}-text.value', questionid=#{self.id.value} WHERE questionid = #{self.id}"
         end
         conn.exec(sql)
     end
