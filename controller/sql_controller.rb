@@ -82,7 +82,6 @@ class SqlController < Sinatra::Base
 		answer.save
 	end 
 
-
 	get '/question/2' do
 		erb :'pages/question_two_page'
 	end
