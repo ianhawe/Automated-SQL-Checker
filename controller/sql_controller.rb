@@ -6,10 +6,7 @@ class SqlController < Sinatra::Base
 	set :views, Proc.new { File.join(root, "views") }
 
 	enable :sessions
-	use Rack::Session::Cookie, :key => 'my_app_key',
-									:path => '/',
-									:expire_after => 2000000, # In seconds
-									:secret => 'secret_stuff'
+	use Rack::Session::Cookie, :key => 'my_app_key', :path => '/', :expire_after => 2000000, :secret => 'secret_stuff'
 
 	#index
 	get '/' do
@@ -81,6 +78,7 @@ class SqlController < Sinatra::Base
 		# save the post
 		answer.save
 	end 
+
 
 	get '/question/2' do
 		erb :'pages/question_two_page'
