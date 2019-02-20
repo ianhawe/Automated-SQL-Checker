@@ -114,14 +114,11 @@ class SqlController < Sinatra::Base
 	end
 
 	get '/student/score' do
-<<<<<<< HEAD
 		@totalscore = 0;
-=======
 		if session[:userid] == nil
 			redirect "student/login"
 		end
 		@score = 0;
->>>>>>> dev2
 		@countcorrect = 0;
 		@countincorrect = 0;
 		@score = Checkanswer.new
