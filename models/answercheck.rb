@@ -1,7 +1,8 @@
 
+  require 'pg'
   class Checkanswer
 
-    attr_accessor :studentid, :questionid, :correctanswer, :studentanswer, :studenttestid, :questionscore, :scoreachieved, :firstname, :lastname
+    attr_accessor :studentid, :questionid, :correctanswer, :studentanswer, :studenttestid, :questionscore, :scoreachieved, :firstname, :lastname, :studenttestid
   
     def save
       conn = Checkanswer.open_connection
@@ -14,13 +15,15 @@
       conn = PG.connect( dbname: "spartaappsql" )
     end
   
-    def self.all
-      conn = self.open_connection
+    def all
+      conn = Checkanswer.open_connection
       sql = "SELECT q.questionid, q.correctanswer, q.questionscore, sa.answer, st.scoreachieved, s.studentid, s.firstname, s.lastname
       FROM question q
       INNER JOIN studentanswer sa ON q.questionid = sa.questionid
       INNER JOIN student_test st ON sa.studenttestid = st.studenttestid
-      INNER JOIN student s ON st.studentid = s.studentid;"
+      INNER JOIN student s ON st.studentid = s.studentid
+      WHERE st.studenttestid = #{self.studenttestid};"
+      
       results = conn.exec(sql)
       # create an array of post objects
       checks = results.map do |tuple| 
@@ -30,7 +33,7 @@
     end
   
     def find
-      conn = self.open_connection
+      conn = Checkanswer.open_connection
       sql = "SELECT * FROM post WHERE id = #{id} LIMIT 1"
       # PG always returns an array
       checks = conn.exec(sql)
@@ -39,7 +42,7 @@
       check
     end
     
-    def self.hydrate post_data
+    def hydrate post_data
       check = Checkanswer.new
       check.studentid = post_data['studentid']
       check.questionid = post_data['questionid']

@@ -21,7 +21,6 @@ class User
   def hydrate post_data
     user = User.new
     user.id = post_data['studentid']
-
   end
 
   def save
