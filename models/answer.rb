@@ -1,13 +1,13 @@
 class Answer
 
-  attr_accessor :id, :question, :studentanswer
+  attr_accessor :id, :question, :studentanswer, :studenttestid
 
   def save
     conn = Answer.open_connection
     # Insert a new record in to the database
     sql1 = "DELETE FROM studentanswer WHERE questionid = #{self.id}"
     conn.exec(sql1)
-      sql = "INSERT I     NTO studentanswer (questionid , answer, studenttestid) VALUES (#{self.id},'#{self.studentanswer}',1)"
+      sql = "INSERT INTO studentanswer (questionid , answer, studenttestid) VALUES (#{self.id},'#{self.studentanswer}',1)"
     conn.exec(sql)
   end
 
@@ -15,9 +15,9 @@ class Answer
     conn = PG.connect( dbname: "spartaappsql" )
   end
 
-  def self.all
-    conn = self.open_connection
-    sql = "SELECT * FROM studentanswer"
+  def all
+    conn = Answer.open_connection
+    sql = "SELECT * FROM studentanswer WHERE studenttestid = #{self.studenttestid}"
     results = conn.exec(sql)
     # create an array of post objects
     answers = results.map do |tuple| 
@@ -36,7 +36,7 @@ class Answer
     answer
   end
   
-  def self.hydrate post_data
+  def hydrate post_data
     answer = Answer.new
     answer.studentanswer = post_data['answer']
     answer.id = post_data['questionid']
