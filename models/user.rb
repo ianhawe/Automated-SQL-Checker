@@ -1,27 +1,27 @@
 require 'pg'
 class User
 
-  attr_accessor :userid, :firstname, :lastname, :rolename, :cohortname, :cohortid, :id
+  attr_accessor :userid, :firstname, :lastname, :rolename, :cohortname, :cohortid, :id, :completed
 
   def self.open_connection
     conn = PG.connect( dbname: "spartaappsql" )
   end
 
-  def self.all
-    conn = self.open_connection
-    sql = "SELECT * FROM student"
+  def get_completed
+    conn = User.open_connection
+    sql = "SELECT completed FROM student WHERE studentid = #{self.userid}"
     results = conn.exec(sql)
     # create an array of post objects
     users = results.map do |tuple| 
-        self.hydrate tuple
+       self.hydrate tuple
     end
-    users
+    
   end
 
   def hydrate post_data
     user = User.new
     user.id = post_data['studentid']
-
+    user.completed = post_data['completed']
   end
 
   def save
@@ -35,6 +35,12 @@ class User
     if id.empty? && self.rolename == "Trainee"
       conn.exec(sql)
     end
+  end
+  
+  def complete_test
+    conn = PG.connect( dbname: "spartaappsql" )
+    sql = "UPDATE student SET completed = true WHERE studentid = #{self.userid};"
+    conn.exec(sql)
   end
 
 end
