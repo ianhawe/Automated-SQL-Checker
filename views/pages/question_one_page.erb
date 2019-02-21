@@ -9,20 +9,24 @@
     <title>Questions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="<%= url('/main.css')%>" />
-    
+
     <script src="main.js"></script>
 </head>
 
 <body>
-    
+    <div class="sparta-logo"></div>
     <div class="row">
         <div class="col-lg-3"></div>
-        <div class="col-lg-6"><h1>Questions</h1></div>
-        <div class="col-lg-3"><a href="/">          
-        <form class="d-none" id="log-out" action="/" method="POST">
-            <input type="hidden" name="_method" value="DELETE">
-        </form>
-        <button class="btn btn-secondary btn-md" type="submit" name="button" form="log-out" id="log-out-btn">Log Out</button></a></div>
+        <div class="col-lg-6">
+            <h1>Questions</h1>
+        </div>
+        <div class="col-lg-3"><a href="/">
+                <form class="d-none" id="log-out" action="/" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                </form>
+                <button class="btn btn-secondary btn-md" type="submit" name="button" form="log-out" id="log-out-btn">Log
+                    Out</button>
+            </a></div>
     </div>
     <br>
     <div class="container">
@@ -30,14 +34,16 @@
         <div class="row question-<%= post.id %>"></div>
         <div class="row">
             <div class="col-lg-1 text-right">
-                <label for="Qid"><%= post.id %></label>
+                <label for="Qid">
+                    <%= post.id %></label>
             </div>
             <div class="col-lg-10">
                 <input type="hidden" name="Qid" value=<%=post.id%>>
                 <form method="POST" action="/question/1">
                     <label for="id"></label>
                     <input type="hidden" name="id" value=<%=post.id%>>
-                    <label for="question" class="flaggedQ"><%= post.question%></label>
+                    <label for="question" class="flaggedQ">
+                        <%= post.question%></label>
                     <label for="studentanswer"></label>
                     <textarea name="studentanswer" class="form-control" id="question-<%= post.id %>-text" rows="3"><% @studentanswers.each do |answer| %><% if(post.id == answer.id) %><%= answer.studentanswer%><% end %><% end %></textarea>
                     <input type="submit" value="save" id="question-<%= post.id %>-button">
@@ -50,7 +56,6 @@
         </div>
         <% end %>
     </div>
-
     <div class="container">
         <div class="row text-center">
             <div class="col-lg-2">
@@ -59,16 +64,15 @@
                 <a href='/info'><button type="button" class="btn btn-info">Info</button></a>
             </div>
             <div class="col-lg-2">
-             <form class="d-none" id="finish" action="/student/score" method="POST">
-                <input type="hidden" name="_method" value="POST">
-                <input type="submit" name="" value="submit">
-            </form>
-                <button class="btn btn-secondary btn-md" type="submit" name="button" form="finish">Submit</button></a></div>
+                <form class="d-none" id="finish" action="/student/score" method="POST">
+                    <input type="hidden" name="_method" value="POST">
+                    <input type="submit" name="" value="submit">
+                </form>
+                <button class="btn btn-secondary btn-md" type="submit" name="button" form="finish">Submit</button></a>
             </div>
         </div>
-        <br>
     </div>
-
+    <br>
+    </div>
 </body>
-
 </html>

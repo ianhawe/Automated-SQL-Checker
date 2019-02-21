@@ -15,7 +15,6 @@ class User
     users = results.map do |tuple| 
        self.hydrate tuple
     end
-    
   end
 
   def hydrate post_data
