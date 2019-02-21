@@ -175,7 +175,6 @@ class SqlController < Sinatra::Base
 		@firstname = check.firstname
 		@lastname = check.lastname
 		end
-
 		erb :'pages/score_page'
 	end
 
