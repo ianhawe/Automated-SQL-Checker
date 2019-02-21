@@ -80,6 +80,8 @@ class SqlController < Sinatra::Base
 		@test.studentid = @api.retrieve_user_id
 	  if @api.retrieve_success == true && @api.retrieve_role_name == "Trainee"
 			session[:userid] = "#{@api.retrieve_user_id}"
+			session[:fname] = "#{@api.retrieve_first_name}"
+			session[:lname] = "#{@api.retrieve_last_name}"
 			@course.save
 			@user.save
 			@test.add_test
@@ -145,6 +147,9 @@ class SqlController < Sinatra::Base
 		@score = 0;
 		@countcorrect = 0;
 		@countincorrect = 0;
+		@finalscore = 0;
+		@unanswered = 8
+		@feedback = "FAIL"
 		@score = Checkanswer.new
 		@score.studenttestid = session[:testid]
 		@checks = @score.all
@@ -169,12 +174,10 @@ class SqlController < Sinatra::Base
 		@finalscore =  ((@totalscore / @maxscore.to_f) * 100).round(1)
 		if @finalscore >= 60
 			@feedback = "PASS"
-		else
-			@feedback = "FAIL"
 		end
-		@firstname = check.firstname
-		@lastname = check.lastname
-		end
+	end
+	@firstname = session[:fname]
+	@lastname = session[:lname]
 		erb :'pages/score_page'
 	end
 
