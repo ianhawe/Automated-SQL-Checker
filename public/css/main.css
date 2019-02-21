@@ -54,3 +54,17 @@
 .empty-side-left {
     margin-top: 910px
 }
+
+.sparta-logo {
+    background-image: url(https://media.licdn.com/dms/image/C560BAQHGBikARgsz5A/company-logo_200_200/0?e=2159024400&v=beta&t=ooHEmQP3Cswkus82FU4hMSwZJU-1z1nD-J2j4lMe5zI);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+    border-radius: 2px;
+    padding: 50px;
+  }
+  
