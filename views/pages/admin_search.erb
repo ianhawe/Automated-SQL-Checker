@@ -1,4 +1,4 @@
-<%# <!doctype html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -30,13 +30,12 @@
             Classes
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Bussiness 20</a>
-            <a class="dropdown-item" href="#">Bussiness 17</a>
-            <a class="dropdown-item" href="#">Bussiness 23</a>
-            <a class="dropdown-item" href="#">Bussiness 25</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Engineering Streams</a>
-          </div>
+          <% @course.each do |course| %>
+            
+            <form class="dropdown-item" method="POST" action="/admin/search">
+               <input name= "course" type="submit" value="<%= course%>" >
+            </form>
+         <% end %>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#">Business</a>
@@ -60,49 +59,16 @@
     <div class="col-lg-6">
       <div class="scrollable">
         <ul class="list-group list-items">
-          <a href="/admin/score">
-            <li class="list-group-item text-center">Student Name</li>
-          </a>
-          <a href="/admin/score">
-            <li class="list-group-item text-center">Student Name</li>
-          </a>
-          <a href="/admin/score">
-            <li class="list-group-item text-center">Student Name</li>
-          </a>
-          <a href="/admin/score">
-            <li class="list-group-item text-center">Student Name</li>
-          </a>
-          <a href="/admin/score">
-            <li class="list-group-item text-center">Student Name</li>
-          </a>
-          <a href="/admin/score">
-            <li class="list-group-item text-center">Student Name</li>
-          </a>
-          <li class="list-group-item text-center">Student Name</li>
-          <li class="list-group-item text-center">Student Name</li>
-          <li class="list-group-item text-center">Student Name</li>
-          <li class="list-group-item text-center">Student Name</li>
-          <li class="list-group-item text-center">Student Name</li>
-          <li class="list-group-item text-center">Student Name</li>
-          <li class="list-group-item text-center">Student Name</li>
-          <li class="list-group-item text-center">Student Name</li>
-          <li class="list-group-item text-center">Student Name</li>
-          <li class="list-group-item text-center">Student Name</li>
-          <li class="list-group-item text-center">Student Name</li>
-          <li class="list-group-item text-center">Student Name</li>
-          <li class="list-group-item text-center">Student Name</li>
-          <li class="list-group-item text-center">Student Name</li>
+         <% @students.each do |student| %>
+         <form method="POST" action="/admin/result"> 
+          <li name ="studentName" type="submit" class="list-group-item text-center"><input style = "width: 100%; Height: 40px" name= "studentName" type="submit" value="<%= student['firstname']%> <%= student['lastname']%>" ></li>
+               
+            </form>
+          <% end %>
         </ul>
       </div>
     </div>
     <div class="col-lg-3"></div>
-  </div>
-
-  <div class="row text-center">
-    <div class="col-lg-6">
-        <a href='/admin/create/course'><button type="button" class="btn btn-primary">Create Course</button></div></a>
-    <div class="col-lg-6">
-        <a href='/admin/create/student'> <button type="button" class="btn btn-primary">Course Student</button></div></a>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -113,4 +79,4 @@
     crossorigin="anonymous"></script>
 </body>
 
-</html> %>
+</html>

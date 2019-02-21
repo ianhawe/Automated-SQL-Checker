@@ -1,7 +1,7 @@
 require 'pg'
 class Test
 
-  attr_accessor :questionid, :studentid, :studentanswer, :studenttestid
+  attr_accessor :questionid, :studentid, :studentanswer, :studenttestid, :studentfirstname, :studentlastname
 
   def save_answers
     conn = Test.open_connection
@@ -71,6 +71,15 @@ class Test
     test.studenttestid = post_data['studenttestid']
     test.studentid = post_data['studentid']
     test
+  end
+
+  def admin_student_test
+    conn = Test.open_connection
+    sql = "SELECT studenttestid FROM student_test WHERE studentid = (select studentid from student where firstname = '#{self.studentfirstname}' and lastname = '#{self.studentlastname}');"
+    result = conn.exec(sql)
+    # bind just the first and return
+    id = self.hydrate result[0]
+    
   end
 
 end

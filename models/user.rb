@@ -1,7 +1,7 @@
 require 'pg'
 class User
 
-  attr_accessor :userid, :firstname, :lastname, :rolename, :cohortname, :cohortid, :id, :completed
+  attr_accessor :userid, :firstname, :lastname, :rolename, :cohortname, :cohortid, :id, :completed, :coursename
 
   def self.open_connection
     conn = PG.connect( dbname: "spartaappsql" )
@@ -42,6 +42,16 @@ class User
     conn = PG.connect( dbname: "spartaappsql" )
     sql = "UPDATE student SET completed = true WHERE studentid = #{self.userid};"
     conn.exec(sql)
+  end
+  
+  def get_student
+    conn = PG.connect( dbname: "spartaappsql" )
+    sql = "select * from student WHERE courseid = (select courseid from course where coursename = '#{self.coursename}');"
+    result = conn.exec(sql)
+   work = result.each do |tuple|
+      self.hydrate tuple
+    end
+  work
   end
 
 end
