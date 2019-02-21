@@ -60,7 +60,11 @@
                 <a href='/info'><button type="button" class="btn btn-info">Info</button></a>
             </div>
             <div class="col-lg-2">
-                <a href='/student/score'> <button type="button" class="btn btn-primary">Submit</button></a>
+             <form class="d-none" id="finish" action="/student/score" method="POST">
+                <input type="hidden" name="_method" value="POST">
+                <input type="submit" name="" value="submit">
+            </form>
+                <button class="btn btn-secondary btn-md" type="submit" name="button" form="finish">Submit</button></a></div>
             </div>
         </div>
         <br>

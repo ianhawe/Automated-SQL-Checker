@@ -34,6 +34,12 @@ class SqlController < Sinatra::Base
   end
 
 	get '/question/1' do
+		@user = User.new
+		@user.userid = session[:userid]
+		@user.get_completed
+		if @user.get_completed[0] == "t"
+			redirect '/student/score'
+		end
 		if session[:userid] == nil
 			redirect "student/login"
 		end
@@ -78,6 +84,9 @@ class SqlController < Sinatra::Base
 			@user.save
 			@test.add_test
 			session[:testid] = @test.find_test[0]['studenttestid'].to_i
+			if @user.get_completed[0] == "t"
+				redirect '/student/score'
+			end
 			redirect "question/1"
 		else
 			redirect "student/login"
@@ -85,17 +94,13 @@ class SqlController < Sinatra::Base
 
 	end
 
-	put '/question/1' do
-		id = params[:id].to_i
-		answer = Answer.find id
-		# bind the values
-		answer.studentanswer = params[:studentanswer]
-		answer.id = params[:id]
-		# save the post
-		answer.save
-	end 
-
 	get '/question/2' do
+		@user = User.new
+		@user.userid = session[:userid]
+		@user.get_completed
+		if @user.get_completed[0] == "t"
+			redirect '/student/score'
+		end
 		if session[:userid] == nil
 			redirect "student/login"
 		end
@@ -103,21 +108,40 @@ class SqlController < Sinatra::Base
 	end
 
 	get '/question/3' do
+		@user = User.new
+		@user.userid = session[:userid]
+		@user.get_completed
+		if @user.get_completed[0] == "t"
+			redirect '/student/score'
+		end
 		erb :'pages/question_three_page'
 	end
 
 	get '/student/review' do
+		@user = User.new
+		@user.userid = session[:userid]
+		@user.get_completed
+		if @user.get_completed[0] == "t"
+			redirect '/student/score'
+		end
 		if session[:userid] == nil
 			redirect "student/login"
 		end
 		erb :'pages/review_questions'
 	end
 
+	post '/student/score' do
+		@user = User.new
+		@user.userid = session[:userid]
+		@user.complete_test
+		redirect '/student/score'
+	end
+
 	get '/student/score' do
-		@totalscore = 0;
 		if session[:userid] == nil
 			redirect "student/login"
 		end
+		@totalscore = 0;
 		@score = 0;
 		@countcorrect = 0;
 		@countincorrect = 0;
