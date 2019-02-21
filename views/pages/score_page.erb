@@ -49,13 +49,13 @@
             <div class="col-lg-2 score_page-result_grey">
                 <p><b>Student Name</b></p>
             </div>
-            <div class="col-lg-2 score_page-result_grey">
-                <p><%= @firstname%> <%= @lastname%></p>
+            <div class="col-lg-2 score_page-result_grey" id="student-name">
+                <p ><%= @firstname%> <%= @lastname%></p>
             </div>
             <div class="col-lg-2 score_page-result_grey">
                 <p><b>Score</b></p>
             </div>
-            <div class="col-lg-2 score_page-result_grey">
+            <div class="col-lg-2 score_page-result_grey" id="total-score">
                 <p><%= @totalscore%></p>
             </div>
             <div class="col-lg-2">
@@ -68,13 +68,13 @@
             <div class="col-lg-2">
                 <p><b>Correct Answers</b></p>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-2" id="correct-answer">
                 <p><%= @countcorrect%></p>
             </div>
             <div class="col-lg-2">
                 <p><b>Incorrect answers</b></p>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-2" id="incorrect-answer">
                 <p><%= @countincorrect%></p>
             </div>
             <div class="col-lg-2">
@@ -87,13 +87,13 @@
             <div class="col-lg-2 score_page-result_grey">
                 <p><b>Unanswered</b></p>
             </div>
-            <div class="col-lg-2 score_page-result_grey">
+            <div class="col-lg-2 score_page-result_grey" id="unanswered">
                 <p><%= @unanswered%></p>
             </div>
             <div class="col-lg-2 score_page-result_grey">
                 <p><b>Score Achieved</b></p>
             </div>
-            <div class="col-lg-2 score_page-result_grey">
+            <div class="col-lg-2 score_page-result_grey" id="final-score">
                 <p><%= @finalscore%>%</p>
             </div>
             <div class="col-lg-2">
@@ -106,7 +106,7 @@
             <div class="col-lg-2">
                 <p><b>Passing Grade</b></p>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-2" id="passing-grade">
                 <p>65 %</p>
             </div>
             <div class="col-lg-2">
@@ -120,7 +120,7 @@
         <div class="col-lg-2">
         </div>
         <div class="col-lg-8 score_page-result_grey_box">
-            <h3>Result:</h3> <p><%= @feedback%></p>
+            <h3>Result:</h3> <p id="feedback"><%= @feedback%></p>
         </div>
         <div class="col-lg-2">
         </div>
