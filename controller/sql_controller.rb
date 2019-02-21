@@ -15,6 +15,9 @@ class SqlController < Sinatra::Base
 
 	#info
 	get '/info' do
+		if session[:userid] == nil
+			redirect "student/login"
+		end
 		erb :'pages/info_page'
 	end
 
