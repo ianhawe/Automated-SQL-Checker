@@ -1,9 +1,11 @@
+<img src="https://media.licdn.com/dms/image/C560BAQHGBikARgsz5A/company-logo_200_200/0?e=2159024400&v=beta&t=ooHEmQP3Cswkus82FU4hMSwZJU-1z1nD-J2j4lMe5zI" height="100" width="100"> 
+
 # Sparta-Project-2 / SQL-Automation-Checker-App
 
-### Description
-For this project, we have created an automated SQL checker application which automatically compares the answers written by trainees during their SQL assessment against the expected answers stored in a created database. Once trainees have completed their assessments, test results are produced for the trainers in Sparta Global which avoids the chance of human error or ambiguities when marking the assessments manually. The automated application provides an efficient way for trainers to evaluate their streams as a collective as well as individual trainee performance.  
+## Description
+For this project, we have created an automated SQL checker application which automatically compares the answers written by trainees during their SQL assessment against the expected answers stored in a created database. Once trainees have completed their assessments, test results are produced for the trainers in Sparta Global which avoids the chance of human error or ambiguities when marking the assessments manually. The automated application provides an efficient way for trainers to evaluate their streams as a collective as well as individual trainee performance. This application is now integrated with the Internal Management System.
 
-### Technologies used
+## Technologies used
 * Ruby
 * JavaScript
 * HTML
@@ -14,24 +16,46 @@ For this project, we have created an automated SQL checker application which aut
 * VS Code
 * Google Chrome Dev Tools
 
-## Frameworks
+# Frameworks
 * Sinatra
 * Bootstrap
 
-### Prerequisites/Installation
-* Install a text editor such as Visual Studio Code
-* Install the latest version of Ruby  
+## Prerequisites/Installation
+* Have the internal management system running (If you do not have it go to: <https://github.com/spartaglobal/InternalManagementSystem>)
 
-### Configuration
-1. Copy/Clone the URL on GitHub into your own terminal
-2. Unzip the file into a selected directory on own local device
-3. Open the local folder in a selected text editor e.g. Visual Studio Code
-4. Run "rackup" inside the terminal of the text editor
-5. Open a selected web browser and type "localhost:[port-number]" shown in your terminal in the web browser URL e.g. localhost:9292
+### Clone Repo 
+``` 
+git clone https://github.com/ianhawe/Automated-SQL-Checker.git
+```
 
-#### You can view the page [https://github.com/ianhawe/Automated-SQL-Checker/.]()
+### Creating the database
+ Manually create the database called spartaaapsql then run the seed file:
+ 
+```
+  psql -U postgres
+  CREATE DATABASE spartaappsql
+  \q
+```
 
-### Challenges (you can include images and code block here)
+Then in terminal run: 
+
+```
+psql -U postgres -d user_management -f seed.sql
+```
+
+**You will also need to create the [Internal Mangement System](https://github.com/spartaglobal/InternalManagementSystem ) database for it to work**
+
+Run `bundle` to install all of the gems needed to run. 
+
+Type in: 
+`
+rackup -p 3000` This will run the sql checker on port 3000.
+
+Open Chrome and type in `localhost:3000`
+
+**You will need to have the [Internal Management System](https://github.com/spartaglobal/InternalManagementSystem) running**
+
+## Challenges
 1. Connecting with the TAR file
 2. Normalisation of the database tables 
 3. Translating the SQL queries from the student selected SQL language (datatypes)
@@ -39,15 +63,14 @@ For this project, we have created an automated SQL checker application which aut
 5. Sessions and cookies
 6. Time constraints
 
-### Learning points
+## Learning points
 1. Better understanding of Ruby/Sinatra and how to apply gems in a full stack application
 2. Understanding the importance of normalisation within database schemas
 
-### To do
+## To do
 1. Make it look according to the wireframes
 2. Hosted on Heroku
 3. Refine query check
-4. Cookies and sessions working correctly
 
 ### Created by:
-Eng-21
+*Engineering-21*
