@@ -57,7 +57,7 @@
                 <p><b>Score</b></p>
             </div>
             <div class="col-lg-2 score_page-result_grey">
-                <p><%= @score%></p>
+                <p><%= @totalscore%></p>
             </div>
             <div class="col-lg-2">
             </div>
@@ -76,7 +76,7 @@
                 <p><b>Incorrect answers</b></p>
             </div>
             <div class="col-lg-2">
-                <p>2</p>
+                <p><%= @countincorrect%></p>
             </div>
             <div class="col-lg-2">
             </div>
@@ -89,13 +89,13 @@
                 <p><b>Unanswered</b></p>
             </div>
             <div class="col-lg-2 score_page-result_grey">
-                <p>1</p>
+                <p><%= @unanswered%></p>
             </div>
             <div class="col-lg-2 score_page-result_grey">
-                <p><b>Passing Grade</b></p>
+                <p><b>Score Achieved</b></p>
             </div>
             <div class="col-lg-2 score_page-result_grey">
-                <p>65 %</p>
+                <p><%= @finalscore%>%</p>
             </div>
             <div class="col-lg-2">
             </div>
@@ -111,10 +111,10 @@
                 <p>1 min 6 secs</p>
             </div>
             <div class="col-lg-2">
-                <p><b>Passing Grade Retake</b></p>
+                <p><b>Passing Grade</b></p>
             </div>
             <div class="col-lg-2">
-                <p>80 %</p>
+                <p>65 %</p>
             </div>
             <div class="col-lg-2">
             </div>
@@ -127,7 +127,7 @@
         <div class="col-lg-2">
         </div>
         <div class="col-lg-8 score_page-result_grey_box">
-            <h3>Result:</h3> <p>PASS</p>
+            <h3>Result:</h3> <p><%= @feedback%></p>
         </div>
         <div class="col-lg-2">
         </div>

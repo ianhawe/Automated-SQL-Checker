@@ -21,7 +21,7 @@ class Question
   
     def self.all
         conn = self.open_connection
-        sql = "SELECT * FROM question WHERE QuestionType = 'Beginner'"
+        sql = "SELECT * FROM question"
         results = conn.exec(sql)
         # create an array of post objects
         posts = results.map do |tuple| 

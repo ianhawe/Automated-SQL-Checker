@@ -34,6 +34,12 @@ class SqlController < Sinatra::Base
   end
 
 	get '/question/1' do
+		@user = User.new
+		@user.userid = session[:userid]
+		@user.get_completed
+		if @user.get_completed[0] == "t"
+			redirect '/student/score'
+		end
 		if session[:userid] == nil
 			redirect "student/login"
 		end
@@ -72,13 +78,15 @@ class SqlController < Sinatra::Base
 		@user.firstname = @api.retrieve_first_name
 		@user.lastname = @api.retrieve_last_name
 		@test.studentid = @api.retrieve_user_id
-
 	  if @api.retrieve_success == true && @api.retrieve_role_name == "Trainee"
 			session[:userid] = "#{@api.retrieve_user_id}"
 			@course.save
 			@user.save
 			@test.add_test
 			session[:testid] = @test.find_test[0]['studenttestid'].to_i
+			if @user.get_completed[0] == "t"
+				redirect '/student/score'
+			end
 			redirect "question/1"
 		else
 			redirect "student/login"
@@ -86,17 +94,13 @@ class SqlController < Sinatra::Base
 
 	end
 
-	put '/question/1' do
-		id = params[:id].to_i
-		answer = Answer.find id
-		# bind the values
-		answer.studentanswer = params[:studentanswer]
-		answer.id = params[:id]    
-		# save the post
-		answer.save
-	end 
-
 	get '/question/2' do
+		@user = User.new
+		@user.userid = session[:userid]
+		@user.get_completed
+		if @user.get_completed[0] == "t"
+			redirect '/student/score'
+		end
 		if session[:userid] == nil
 			redirect "student/login"
 		end
@@ -104,39 +108,73 @@ class SqlController < Sinatra::Base
 	end
 
 	get '/question/3' do
+		@user = User.new
+		@user.userid = session[:userid]
+		@user.get_completed
+		if @user.get_completed[0] == "t"
+			redirect '/student/score'
+		end
 		erb :'pages/question_three_page'
 	end
 
 	get '/student/review' do
+		@user = User.new
+		@user.userid = session[:userid]
+		@user.get_completed
+		if @user.get_completed[0] == "t"
+			redirect '/student/score'
+		end
 		if session[:userid] == nil
 			redirect "student/login"
 		end
 		erb :'pages/review_questions'
 	end
 
+	post '/student/score' do
+		@user = User.new
+		@user.userid = session[:userid]
+		@user.complete_test
+		redirect '/student/score'
+	end
+
 	get '/student/score' do
 		if session[:userid] == nil
 			redirect "student/login"
 		end
+		@totalscore = 0;
 		@score = 0;
 		@countcorrect = 0;
-		@checks = Checkanswer.all
+		@countincorrect = 0;
+		@score = Checkanswer.new
+		@score.studenttestid = session[:testid]
+		@checks = @score.all
+		@posiblescore = @score.get_all_questions
 		@checks.each do |check|
 		@givescore = check.questionscore.to_i
 		correctanswer = check.correctanswer
 		givenanswer = check.studentanswer
 		correctanswer_str = correctanswer.split(' ').sort
 		givenanswer_str = givenanswer.split(' ').sort
-		if (correctanswer_str.length === givenanswer_str.length)
-			if(correctanswer_str === givenanswer_str)
-					@score = @givescore + @score
-					@countcorrect = @countcorrect + 1;
+			if (correctanswer_str.length === givenanswer_str.length) && (correctanswer_str === givenanswer_str)
+						@totalscore += @givescore
+						@countcorrect = @countcorrect + 1;
+			else(correctanswer_str != givenanswer_str)
+						@countincorrect += 1;
 			end
+		@posiblescore.each do |score|
+			@questions = score.countquestion.to_i
+			@maxscore = score.maxscore.to_i
+		end
+		@unanswered = @questions - @countincorrect - @countcorrect
+		@finalscore =  ((@totalscore / @maxscore.to_f) * 100).round(1)
+		if @finalscore >= 60
+			@feedback = "PASS"
+		else
+			@feedback = "FAIL"
 		end
 		@firstname = check.firstname
 		@lastname = check.lastname
 		end
-
 		erb :'pages/score_page'
 	end
 
