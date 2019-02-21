@@ -9,7 +9,7 @@ class User
 
   def get_completed
     conn = User.open_connection
-    sql = "SELECT completed FROM student WHERE studentid = #{self.userid}"
+    sql = "SELECT completed FROM student WHERE studentid = 2"
     results = conn.exec(sql)
     # create an array of post objects
     users = results.map do |tuple| 
@@ -21,6 +21,8 @@ class User
   def hydrate post_data
     user = User.new
     user.id = post_data['studentid']
+    user.firstname = post_data['firstname']
+    user.lastname = post_data['lasttname']
     user.completed = post_data['completed']
   end
 
