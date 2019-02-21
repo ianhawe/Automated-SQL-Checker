@@ -23,7 +23,6 @@
       INNER JOIN student_test st ON sa.studenttestid = st.studenttestid
       INNER JOIN student s ON st.studentid = s.studentid
       WHERE st.studenttestid = #{self.studenttestid};"
-      
       results = conn.exec(sql)
       # create an array of post objects
       checks = results.map do |tuple| 

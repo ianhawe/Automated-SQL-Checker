@@ -158,7 +158,6 @@ class SqlController < Sinatra::Base
 			if (correctanswer_str.length === givenanswer_str.length) && (correctanswer_str === givenanswer_str)
 						@totalscore += @givescore
 						@countcorrect = @countcorrect + 1;
-				
 			else(correctanswer_str != givenanswer_str)
 						@countincorrect += 1;
 			end
