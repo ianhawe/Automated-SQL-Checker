@@ -34,7 +34,7 @@
      def get_all_questions 
       conn = Checkanswer.open_connection
       type = 'Beginner'
-      sql = 'SELECT count(question) AS "Count", sum(questionscore) AS "SUM"from question WHERE questiontype = 1;'
+      sql = 'SELECT count(question) AS "Count", sum(questionscore) AS "SUM" from question WHERE questiontype = 1;'
       results = conn.exec(sql)
       check = results.map do |tuple|
         self.hydrate tuple

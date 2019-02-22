@@ -1,26 +1,26 @@
 require 'pg'
 class Course
 
-  attr_accessor :courseid, :coursename, :id
+  attr_accessor :courseid, :coursename, :name, :id
 
   def self.open_connection
     conn = PG.connect( dbname: "spartaappsql" )
   end
 
-  def self.all
-    conn = self.open_connection
+  def all
+    conn = Course.open_connection
     sql = "SELECT * FROM course"
     results = conn.exec(sql)
     # create an array of post objects
     course = results.map do |tuple| 
         self.hydrate tuple
     end
-    course
   end
 
   def hydrate (post_data)
     course = Course.new
     course.id = post_data['courseid']
+    course.name = post_data['coursename']
   end
 
   def save
