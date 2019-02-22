@@ -35,14 +35,14 @@ class SqlController < Sinatra::Base
   end
 
 	get '/question/1' do
+		if session[:userid] == nil
+			redirect "student/login"
+		end
 		@user = User.new
 		@user.userid = session[:userid]
 		@user.get_completed
 		if @user.get_completed[0] == "t"
 			redirect '/student/score'
-		end
-		if session[:userid] == nil
-			redirect "student/login"
 		end
 		@userid = session[:userid]
 		@posts = Question.all
@@ -98,38 +98,28 @@ class SqlController < Sinatra::Base
 	end
 
 	get '/question/2' do
+		if session[:userid] == nil
+			redirect "student/login"
+		end
 		@user = User.new
 		@user.userid = session[:userid]
 		@user.get_completed
 		if @user.get_completed[0] == "t"
 			redirect '/student/score'
-		end
-		if session[:userid] == nil
-			redirect "student/login"
 		end
 		erb :'pages/question_two_page'
 	end
 
-	get '/question/3' do
-		@user = User.new
-		@user.userid = session[:userid]
-		@user.get_completed
-		if @user.get_completed[0] == "t"
-			redirect '/student/score'
-		end
-		erb :'pages/question_three_page'
-	end
-
 	get '/student/review' do
-		@user = User.new
-		@user.userid = session[:userid]
-		@user.get_completed
-		if @user.get_completed[0] == "t"
-			redirect '/student/score'
-		end
 		if session[:userid] == nil
 			redirect "student/login"
 		end
+		if @user.get_completed[0] == "t"
+			redirect '/student/score'
+		end
+		@user = User.new
+		@user.userid = session[:userid]
+		@user.get_completed
 		erb :'pages/review_questions'
 	end
 
@@ -195,6 +185,8 @@ class SqlController < Sinatra::Base
 	  if @api.retrieve_success == true && @api.retrieve_role_name == "Admin"
 			session[:userid] = "#{@api.retrieve_user_id}"
 			redirect "admin/search"
+		else
+			redirect "admin/login"
 		end
 	end
 	
@@ -217,6 +209,7 @@ class SqlController < Sinatra::Base
 	end
 
 	get '/admin/results/:id' do
+	
 		@test = Test.new
 		@test.studentfirstname = session[:admin_studentfirstname]
 		@test.studentlastname = session[:admin_studentlastname]
@@ -262,7 +255,7 @@ class SqlController < Sinatra::Base
 		session[:admin_studentfirstname] = params[:studentName].split[0]
 		session[:admin_studentlastname] = params[:studentName].split[1]
 		id = params[:studentName].split.join
-		redirect "admin/results/#{id}'"
+		redirect "admin/results/#{id}"
 	end
 
 end
