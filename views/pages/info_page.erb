@@ -1,4 +1,5 @@
-<head>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -7,43 +8,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Information</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="<%= url('/main.css')%>" />
-    
+    <link rel="stylesheet" type="text/css" media="screen" href= "/css/main.css"/>
     <script src="main.js"></script>
 </head>
 
 <body>
+<div class="sparta-logo"></div>
   <div class="row">
     <div class="col-lg-3"></div>
     <div class="col-lg-6">
       <h1 class="info_title"> HOW TO USE</h1>
-      <h2>Admin Info</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum tenetur ab molestiae, libero, recusandae aliquam
-        repellendus voluptatibus inventore itaque ipsum nulla ullam? Totam aliquam molestias consequatur facere,
-        perferendis natus reiciendis!</p>
+      <br>
+      <h2>SQL Assesment Information</h2>
+      <p>This is the assesment to the sparta SQL assesment. One attempt is allowed and you need 65% to pass the exam. if you fail you will need to retake with a pass mark of 80%. The  </p>
       <h2>Student Info</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sed consequatur ipsum repellendus inventore
-        ipsa illo nulla. Nisi, obcaecati tenetur ullam expedita, quaerat eligendi consequuntur quidem ipsa praesentium
-        et corrupti.</p>
+      <p>You will be given a list of sql questions. You will have to run the sql queries through your own application and database and write your answer in the following text field.</p>
       <h2>How to Save</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, necessitatibus laborum. Optio, beatae
-        omnis deserunt nam obcaecati, fugiat, necessitatibus provident eum nemo sunt consequatur hic temporibus debitis
-        eos tenetur maiores?</p>
+      <p>After typing your answer you can click save to comeback if you leave the website before submitting your final answers</p>
     </div>
-    <div class="col-lg-3"></div>
+    <div class="col-lg-3">        
+        <form class="d-none" id="log-out" action="/" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" name="" value="Log Out">
+        </form>
+        <button class="btn btn-secondary btn-md" type="submit" name="button" form="log-out" id="log-out-btn">Log Out</button></a></div>
+        </div>
   </div>
-
+  <br>
   <div class="row text-center">
     <div class="col-lg-3"></div>
-    <div class="col-lg-6"><a href='/'><button type="button" class="btn btn-info">Back</button></div>
+    <div class="col-lg-6"><a href='/question/1'><button type="button" class="btn btn-info">Back</button></a></div>
     <div class="col-lg-3"></div>
   </div>
-
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
-
-</body>
+    </body>
+</html>

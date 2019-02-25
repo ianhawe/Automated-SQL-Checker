@@ -1,0 +1,66 @@
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+.top {
+    padding-bottom: 5%;
+}
+
+.flaggedQuestions {
+    padding-bottom: 1%;
+}
+
+.q1flag {
+    margin-top: 300px;
+    background-color: white;
+}
+
+.textbox {
+    width: 800px;
+    height:100px;
+}
+
+.paddingTB {
+    padding-top:40px;
+}
+
+.paddingTB1 {
+    padding-top:40px;
+}
+
+.largerTB {
+    width: 100%;
+    height:200px;
+}
+
+.empty-side-right {
+    float: right;
+    padding-bottom: 20px;
+}
+
+.submit {
+    margin-left: 110px;
+    padding-left: 56px;
+    padding-right: 56px;
+}
+
+.backBtn {
+    padding-left: 56px;
+    padding-right: 56px;
+}
+
+.empty-side-left {
+    margin-top: 910px
+}
+
+.sparta-logo {
+    background-image: url(https://media.licdn.com/dms/image/C560BAQHGBikARgsz5A/company-logo_200_200/0?e=2159024400&v=beta&t=ooHEmQP3Cswkus82FU4hMSwZJU-1z1nD-J2j4lMe5zI);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+    border-radius: 2px;
+    padding: 50px;
+  }
+  

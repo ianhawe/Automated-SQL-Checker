@@ -1,63 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-    crossorigin="anonymous">
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-<title>Admin Login</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" media="screen" href="<%= url('/main.css')%>" />
-
-<script src="main.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="main.js"></script>
 </head>
 
 <body>
-
+     <img class= "sparta-logo">
   <div>
-
-    <div class="login">
-
-      <div class="row">
-
-        <div class="col-lg-4">
-        </div>
-
-        <div class="col-lg-4">
-          <div>
-            <h1 class="sql-header">Admin Login</h1>
-
-            <form>
-              <div class="form-group">
-                <label for="firstNameLabel">Email Address</label>
-                <input type="name" class="form-control" id="" aria-describedby="email" placeholder="First Name">
-              </div>
-              <div class="form-group">
-                <label for="InputPassword1">Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-              </div>
-
-              <a href="/">
-                <button type="button" class="btn btn-primary">Back</button>
-              </a>
-
-              <a href="/admin/search">
-
-                <button type="button" class="btn btn-primary">Login</button>
-
-              </a>
-            </form>
-            </form>
-
-          </div>
-        </div>
-
-
-        <div class="col-lg-4"></div>
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4"><h1 class="sql-header">Admin Login</h1></div>
+      <div class="col-lg-4"></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4 form-group">
+        <form method = "POST" action="/admin/login">
+          <input type="text" name="email" class="form-control" id="" aria-describedby="firstName" placeholder="Email or username">
+          <input type="password" name="password" class="form-control" id="" aria-describedby="lastName" placeholder="Password">
       </div>
-      <div class="row">
-      </div>
+      <div class="col-lg-4"></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+        <a href="/"><button type="button" class="btn btn-primary">Back</button></a>
+        <input type="submit" class="btn btn-primary" value="Submit"></div>
+        </form>
+      <div class="col-lg-4"></div>
     </div>
   </div>
-
-</body>
+  </body>
+  </html>
